@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Engineering on Oxide Computer Company</title>
+    <link>/blog/categories/engineering/</link>
+    <description>Recent content in Engineering on Oxide Computer Company</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Sep 2016 08:09:26 -0700</lastBuildDate>
+    
+	<atom:link href="/blog/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sample Post</title>
+      <link>/blog/sample-post/</link>
+      <pubDate>Sat, 17 Sep 2016 08:09:26 -0700</pubDate>
+      
+      <guid>/blog/sample-post/</guid>
+      <description>Pulling teeth. Ramp up highlights. Programmatically what the onward and upward, productize the deliverables and focus on the bottom line product management breakout fastworks. In this space obviously even dead cats bounce, yet vertical integration, cloud strategy. Manage expectations closer to the metal this is a no-brainer back of the net, and optics touch base products need full resourcing and support from a cross-functional team in order to be built, maintained, and evolved.</description>
+    </item>
+    
+  </channel>
+</rss>

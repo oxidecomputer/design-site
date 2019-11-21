@@ -1,0 +1,17 @@
+<!-- twitter card meta tags -->
+<meta property="twitter:account_id" content="285428413" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
+<meta name="twitter:creator" content="@{{ .Site.Params.twitter_handle }}">
+<meta name="twitter:title" content="{{ .Site.Title }}: {{ if eq .Section "post" }}{{ .Title }}{{ else }}Home{{ end }}">
+<meta name="twitter:description" content="{{ if eq .Section "post" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{.Site.BaseURL}}/img/logo.png">
+<meta name="twitter:domain" content="{{.Site.Title}}">
+
+<!-- facebook open graph tags -->
+<meta property="og:title" content="{{ .Title }}"/>
+<meta property="og:Section" content="website"/>
+<meta property="og:url" content="{{ .Permalink }}"/>
+<meta property="og:site_name" content="{{ .Site.Title }}"/>
+<meta property="fb:admins" content="1018260045"/>
+<meta property="og:description" content="{{ if eq .Section "post" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"/>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Careers on Oxide Computer Company</title>
+    <link>/careers/</link>
+    <description>Recent content in Careers on Oxide Computer Company</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Sep 2019 09:32:30 -0700</lastBuildDate>
+    
+	<atom:link href="/careers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Systems Engineers</title>
+      <link>/careers/systems-engineers/</link>
+      <pubDate>Tue, 17 Sep 2019 09:32:30 -0700</pubDate>
+      
+      <guid>/careers/systems-engineers/</guid>
+      <description>We are looking for more people like us: systems generalists who love to cut code—software engineers who are afraid of neither the biggest of problems nor the grittiest details, who are comfortable in every stage of the software design and implementation process, and who find gratification in seeing their work available as open source.
+We&amp;rsquo;re seeking engineers who are able to move up and down the stack. At any given time, we may find ourselves debugging a nasty device firmware bug, rewriting a portion of the operating system kernel, instrumenting the networking stack, debugging a virtual machine or interpreter, or developing code for a distributed system to allow containers to be understood or managed, perhaps all in the same day or as part of the same problem.</description>
+    </item>
+    
+  </channel>
+</rss>

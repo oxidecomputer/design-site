@@ -1,0 +1,107 @@
+#nav {
+    margin-bottom: 0px!important;
+}
+
+.callouts {
+    margin: 100px 0;
+}
+
+.container {
+    max-width: 960px;
+}
+
+#logo a, nav a, footer a {
+    color: #212529;
+    border-bottom: none;
+}
+
+#logo a:hover, nav a:hover, footer a:hover {
+    text-decoration: none;
+    color: #000000!important;
+    border-bottom: none;
+}
+
+#copyright {
+    margin-top: 20px;
+    display: block;
+    text-align: right;
+}
+
+.careers, .terms {
+    margin: 40px 0 20px 0;
+}
+
+article .list-group a, article .list-group a:hover {
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.member {
+    margin: 0px 0px 40px 0px;
+}
+
+.member .icons {
+    margin: 0px 0px 10px 0px;
+}
+
+.member .icons a {
+    font-size: 18px;
+    margin-right: 5px;
+    color: #6c757d;
+    border-bottom: none;
+}
+
+.member .icons a:hover {
+    color: #000000;
+    border-bottom: none;
+}
+
+.summary {
+    margin: 0px 0px 40px 0px;
+}
+
+h4 .author {
+    margin: 0px 10px;
+}
+
+article h2 a, h6 a {
+    color: #212529;
+    border-bottom: 2px solid transparent;
+}
+
+article h2 a:hover, h6 a:hover {
+    color: #000000;
+    border-bottom: 2px solid #000000;
+}
+
+article h2 small {
+    margin-left: 10px;
+}
+
+.heading .lead {
+    width:100%;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 150%;
+}
+
+.jumbotron h1 {
+    margin: 150px 0px;
+}
+
+article.team {
+    margin-top: 30px;
+    padding-left: 10px;
+}
+
+.member p {
+    padding-right: 10px;
+}
+
+textarea:focus, input:focus, *:focus, button, a, a:focus {
+    outline: none;
+}
+
+p strong {
+    color: #212529;
+}
