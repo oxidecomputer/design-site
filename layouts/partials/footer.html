@@ -1,4 +1,3 @@
-{{ partial "footer.meta.html" . }}
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-29404280-22"></script>
@@ -10,7 +9,7 @@ gtag('js', new Date());
 gtag('config', '{{.Site.Params.google_analytics}}');
 </script>
 
-{{ if .IsHome }}<script src="/js/circuit.js"></script>{{end}}
+<script src="/js/circuit.js"></script>
 
 </body>
 </html>

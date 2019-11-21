@@ -1,10 +1,8 @@
-#baseurl = "https://weirdtrickmafia.fm"
+baseurl = "https://design.oxide.computer"
 languageCode = "en-us"
-title = "0x1de Computer Company"
+title = "Oxide Computer Company"
 canonifyUrls = true
 
 [params]
 description = "Bringing the soul back to computing"
-github_url = "https://github.com/0x1de"
-twitter_handle = "0x1de"
-google_analytics = ""
+github_url = "https://github.com/oxidecomputer"
