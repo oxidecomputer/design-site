@@ -29,10 +29,6 @@ body.home {
 }
 
 
-.home .navbar {
-    display:none;
-}
-
 .parent {
 }
 
@@ -42,6 +38,13 @@ main {
     top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
+    max-width: 600px;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        width: 90%;
+    }
 }
 
 .footer {
