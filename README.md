@@ -14,3 +14,5 @@ Run `hugo serve` to automatically update as you make changes. This will output
 the url to the browser.
 
 Or you can use `make serve`.
+
+This idea was based off something a team at [Micrsoft](https://microsoft.github.io/join-dev-design/) did as well :)
