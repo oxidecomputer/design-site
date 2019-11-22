@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ .Site.Params.description }}">
 
-    <title>{{ .Site.Title }}</title>
+    <title>{{ .Site.Title }}: Design</title>
 
     <link rel="canonical" href="{{ .Permalink }}">
 
@@ -18,18 +18,18 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
     <meta name="twitter:creator" content="@{{ .Site.Params.twitter_handle }}">
-    <meta name="twitter:title" content="{{ .Site.Title }}: {{ if eq .Section "post" }}{{ .Title }}{{ else }}Home{{ end }}">
-    <meta name="twitter:description" content="{{ if eq .Section "post" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="twitter:title" content="{{ .Site.Title }}: Design">
+    <meta name="twitter:description" content="{{ .Site.Params.description }}">
     <meta name="twitter:image" content="{{.Site.BaseURL}}/img/logo.png">
     <meta name="twitter:domain" content="{{.Site.Title}}">
 
     <!-- facebook open graph tags -->
-    <meta property="og:title" content="{{ .Title }}"/>
+    <meta property="og:title" content="{{ .Title }}: Design"/>
     <meta property="og:Section" content="website"/>
     <meta property="og:url" content="{{ .Permalink }}"/>
     <meta property="og:site_name" content="{{ .Site.Title }}"/>
     <meta property="fb:admins" content="1018260045"/>
-    <meta property="og:description" content="{{ if eq .Section "post" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"/>
+    <meta property="og:description" content="{{ .Site.Params.description }}"/>
 
     <link rel="shortcut icon" href="/favicon.ico">
 
