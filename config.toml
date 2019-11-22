@@ -4,6 +4,6 @@ title = "Oxide Computer Company"
 canonifyUrls = true
 
 [params]
-description = "Bringing the soul back to computing"
+description = "Bringing the soul back to computing."
 github_url = "https://github.com/oxidecomputer"
 twitter_handle = "oxidecomputer"
