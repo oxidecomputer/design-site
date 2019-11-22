@@ -1,11 +1,63 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ .Site.Params.description }}">
 
-<div class="parent">
-	<main>
-		<h1>{{.Site.Title}}</h1>
-		<p class="lead">{{.Site.Params.Description}}</p>
-        <p>Interested? Send a PR with any improvement to <a href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank"><strong>this repo on GitHub</strong></a> or <a href="https://oxide.computer/careers/product-engineers/" target="_blank"><strong>apply through our careers page</strong></a>.
-	</main>
-</div>
+    <title>{{ .Site.Title }}</title>
 
-{{ partial "footer.html" . }}
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <!-- twitter card meta tags -->
+    <meta property="twitter:account_id" content="285428413" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
+    <meta name="twitter:creator" content="@{{ .Site.Params.twitter_handle }}">
+    <meta name="twitter:title" content="{{ .Site.Title }}: {{ if eq .Section "post" }}{{ .Title }}{{ else }}Home{{ end }}">
+    <meta name="twitter:description" content="{{ if eq .Section "post" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="twitter:image" content="{{.Site.BaseURL}}/img/logo.png">
+    <meta name="twitter:domain" content="{{.Site.Title}}">
+
+    <!-- facebook open graph tags -->
+    <meta property="og:title" content="{{ .Title }}"/>
+    <meta property="og:Section" content="website"/>
+    <meta property="og:url" content="{{ .Permalink }}"/>
+    <meta property="og:site_name" content="{{ .Site.Title }}"/>
+    <meta property="fb:admins" content="1018260045"/>
+    <meta property="og:description" content="{{ if eq .Section "post" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"/>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" href="/css/custom.css" />
+    <script src="/js/lib/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+    <div class="svg">{{ partial "circuit.svg" . }}</div>
+
+    <div class="parent">
+        <main>
+            <h1>{{.Site.Title}}</h1>
+            <p class="lead">{{.Site.Params.Description}}</p>
+            <p>Interested? Send a PR with any improvement to <a href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank"><strong>this repo on GitHub</strong></a> or <a href="https://oxide.computer/careers/product-engineers/" target="_blank"><strong>apply through our careers page</strong></a>.
+        </main>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.google_analytics}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '{{.Site.Params.google_analytics}}');
+    </script>
+
+    <script src="/js/circuit.js"></script>
+</body>
+</html>
