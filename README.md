@@ -16,3 +16,8 @@ the url to the browser.
 Or you can use `make serve`.
 
 This idea was based off something a team at [Microsoft](https://microsoft.github.io/join-dev-design/) did as well :)
+
+### Deploying
+
+The site is deployed on [Netlify](https://www.netlify.com/) so we get 
+[previews of changes in PRs](https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/).
