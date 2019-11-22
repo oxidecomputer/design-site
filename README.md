@@ -15,4 +15,4 @@ the url to the browser.
 
 Or you can use `make serve`.
 
-This idea was based off something a team at [Micrsoft](https://microsoft.github.io/join-dev-design/) did as well :)
+This idea was based off something a team at [Microsoft](https://microsoft.github.io/join-dev-design/) did as well :)
