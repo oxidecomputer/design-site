@@ -16,12 +16,6 @@ body {
     width:100%;
 }
 
-.container {
-    min-height: 0px;
-    max-width:100%;
-}
-
-
 main {
     padding: 30px 0;
     position: absolute;
