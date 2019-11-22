@@ -1,7 +1,8 @@
 # design.oxide.computer
 
-This is the source code for the design website for the Oxide Computer Company.
-Make a PR to change something and show off your skills :)
+We are looking for designers who code to help build a new user experience for computing!
+
+Interested? Send a PR with any improvement to this repo on GitHub or [apply through our careers page](https://oxide.computer/careers/product-engineers/).
 
 ## Contributing
 
