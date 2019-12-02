@@ -49,6 +49,11 @@ a:hover {
     border-bottom: 1px solid var(--link-hover-border-bottom-color);
 }
 
+a:focus {
+    color: var(--link-hover-color);
+    border-bottom: 1px solid var(--link-hover-border-bottom-color);
+}
+
 svg {
     min-height: 100%;
     position: absolute;
