@@ -1,0 +1,15 @@
+:root {
+    --body-bg-color: #fff;
+    --html-body-darker-bg-color: #222;
+    --link-color: #FFFAFA;
+    --link-border-bottom-color: #4788f2;
+    --link-hover-color: #4788f2;
+    --link-hover-border-bottom-color: #4788f2;
+    --stroke-darker-color: #333;
+    --stroke-light-color: #a7a7a7;
+
+    --font-size: 1.2rem;
+    --font-family: 'Inconsolata', monospace;
+
+    --main-width: 600px;
+}
