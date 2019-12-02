@@ -40,13 +40,17 @@
 <body>
     <div class="svg">{{ partial "circuit.svg" . }}</div>
 
-    <div class="parent">
-        <main>
-            <h1>{{.Site.Title}}</h1>
-            <p class="lead">{{.Site.Params.Description}}</p>
-            <p>Interested? Send a PR with any improvement to <a href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank"><strong>this repo on GitHub</strong></a> or <a href="https://oxide.computer/careers/product-engineers/" target="_blank"><strong>apply through our careers page</strong></a>.
-        </main>
-    </div>
+<div class="parent">
+    <main>
+        <h1>{{.Site.Title}}</h1>
+        <p class="lead">{{.Site.Params.Description}}</p>
+        <p>Interested? Send a PR with any improvement to <a
+                href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank"
+                alt="Github repository url" title="Github repository url"><strong>this repo on GitHub</strong></a> or <a
+                href="https://oxide.computer/careers/product-engineers/" target="_blank" alt="Website careers page"
+                title="Website careers page"><strong>apply through our careers page</strong></a>.
+    </main>
+</div>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.google_analytics}}"></script>

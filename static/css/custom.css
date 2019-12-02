@@ -64,6 +64,11 @@ a:hover {
     border-bottom: 1px solid #4788f2;
 }
 
+a:focus {
+    color: var(--link-hover-color);
+    border-bottom: 1px solid var(--link-hover-border-bottom-color);
+}
+
 svg {
     min-width: 100vw;
     min-height: 100vh;
