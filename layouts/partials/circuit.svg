@@ -1,4 +1,6 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 960 560" style="enable-background:new 0 0 960 560;" xml:space="preserve">
+    <title>Circuit background</title>
+    <desc id="description">An animated circuit representation.</desc>
     <g id="lines">
     <polyline class="st0" points="838.4,0 743.5,66.3 743.5,177 720,194.3 	"/>
     <polyline class="st0" points="846.2,0.1 751.5,67 751.5,182 720,203.5 687,203.5 677,213 	"/>
