@@ -1,7 +1,7 @@
-var paths = document.querySelectorAll('.st0');
+const paths = document.querySelectorAll('.st0');
 
 [].forEach.call(paths, function(path) {
-    var length = path.getTotalLength();
+    const length = path.getTotalLength();
     // Clear any previous transition
     path.style.transition = path.style.WebkitTransition =
         'none';
@@ -16,4 +16,4 @@ var paths = document.querySelectorAll('.st0');
         'stroke-dashoffset 3s ease-in-out';
     // Go!
     path.style.strokeDashoffset = '0';
-})
+});
