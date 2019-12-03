@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'HKGrotesk';
+    font-weight: normal;
+    font-style: normal;
+    src: url('/fonts/HKGrotesk-Regular.woff') format('woff');
+}
+
 html, body {
     background-color: #222;
     height: 100%;
@@ -10,18 +17,20 @@ html, body {
 body {
     color: #fff;
     font-size: 1.2rem;
-    font-family: 'Inconsolata', monospace;
-    overflow:hidden;
-    max-width:100%;
-    width:100%;
-    margin:0;
+    font-family: 'HKGrotesk', sans-serif;
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 main {
     padding: 30px 0;
     position: absolute;
     top: 48%;
-    left: 50%;
+    left: 51%;
     transform: translate(-50%, -50%);
     max-width: 600px;
 }
