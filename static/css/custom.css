@@ -87,7 +87,7 @@ svg {
     stroke-miterlimit:10;
     stroke-dasharray: var(--length);
     stroke-dashoffset: var(--length);
-    animation: drawLine 1s 200ms ease-out both;
+    animation: drawLine 1s 750ms ease-out both;
 }
 
 @keyframes drawLine {
@@ -101,7 +101,7 @@ svg {
     fill:none;
     stroke:#a7a7a7;
     stroke-linecap:round;
-    animation: drawCircle 1s 500ms linear both;
+    animation: drawCircle 1s 200ms both;
 }
 
 @keyframes drawCircle {
