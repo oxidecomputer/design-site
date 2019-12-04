@@ -62,6 +62,11 @@ gtag('js', new Date());
 gtag('config', '{{.Site.Params.google_analytics}}');
     </script>
 
-    <script src="/js/circuit.js"></script>
+    <script>
+        const lines = document.querySelector('#lines').children;
+        [...lines].forEach(line => {
+            line.style.setProperty('--length', line.getTotalLength());
+        });
+    </script>
 </body>
 </html>

@@ -6,10 +6,12 @@
     --link-hover-color: #3366FF;
     --link-hover-border-bottom-color: #3366FF;
     --stroke-darker-color: #333;
-    --stroke-light-color: #524f4f;
+    --stroke-light-color: #a7a7a7;
 
     --font-size: 1.2rem;
-    --font-family: 'Inconsolata', monospace;
+    --font-family: 'HKGrotesk', sans-serif;
 
     --main-width: 600px;
+    --portrait-height: 130vh;
+    --portrait-width: 130vw;
 }
