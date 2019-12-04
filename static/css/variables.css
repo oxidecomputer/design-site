@@ -12,4 +12,6 @@
     --font-family: 'Inconsolata', monospace;
 
     --main-width: 600px;
+    --portrait-height: 130vh;
+    --portrait-width: 130vw;
 }

@@ -1,8 +1,10 @@
+@import "variables.css";
+
 @font-face {
     font-family: 'HKGrotesk';
     font-weight: normal;
     font-style: normal;
-    src: url('/fonts/HKGrotesk-Regular.woff') format('woff');
+    src: url('../fonts/HKGrotesk-Regular.woff') format('woff');
 }
 
 html, body {
@@ -11,10 +13,10 @@ html, body {
 }
 
 body {
-    background-color: #222;
-    color: #fff;
-    font-size: 1.2rem;
-    font-family: 'HKGrotesk', sans-serif;
+    background-color: var(--html-body-darker-bg-color);
+    color: var(--body-bg-color);
+    font-size: var(--font-size);
+    font-family: var(--font-family);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
@@ -49,19 +51,20 @@ main {
 }
 
 a {
-    color: #FFFAFA;
+    color: var(--link-color);
     -webkit-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
     -ms-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
-    border-bottom: 1px solid #FFFAFA;
+    border-bottom: 1px solid var(--link-border-bottom-color);
+    border-bottom: 1px solid var(--link-border-bottom-color);
     text-decoration: none;
 }
 
 a:hover {
-    color: #4788f2;
-    border-bottom: 1px solid #4788f2;
+    color: var(--link-hover-color);
+    border-bottom: 1px solid var(--link-hover-border-bottom-color);
 }
 
 a:focus {
@@ -88,11 +91,11 @@ svg {
 }
 
 /* Lines */
-.st0{
-    fill:none;
-    stroke:#333;
-    stroke-miterlimit:10;
-    stroke-miterlimit:10;
+.st0 {
+    fill: none;
+    stroke: var(--stroke-darker-color);
+    stroke-miterlimit: 10;
+    stroke-miterlimit: 10;
     stroke-dasharray: var(--length);
     stroke-dashoffset: var(--length);
     animation: drawLine 1s 750ms ease-out both;
@@ -105,10 +108,10 @@ svg {
 }
 
 /* Circles */
-.st1{
-    fill:none;
-    stroke:#a7a7a7;
-    stroke-linecap:round;
+.st1 {
+    fill: none;
+    stroke: var(--stroke-light-color);
+    stroke-linecap: round;
     animation: drawCircle 1s 200ms both;
 }
 
@@ -124,13 +127,14 @@ svg {
 @media screen and (orientation:portrait) {
     /* Portrait styles */
     svg {
-        height: 130vh;
+        height: var(--portrait-height);
     }
 }
+
 /* Landscape */
 @media screen and (orientation:landscape) {
     /* Landscape styles */
     svg {
-        width: 130vw;
+        width: var(--portrait-width);
     }
 }
