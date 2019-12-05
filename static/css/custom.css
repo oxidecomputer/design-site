@@ -20,6 +20,17 @@
     --text-block-spacing: 0.5em;
 }
 
+@keyframes move-in {
+  from {
+    transform: translateY(var(--move-in-offset));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 html, body {
     padding: 0;
     margin: 0;
