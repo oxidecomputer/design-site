@@ -41,8 +41,17 @@
     <div class="svg">{{ partial "circuit.svg" . }}</div>
 
     <div class="parent">
+        <logo>
+            <div class="logo-link" title="Oxide Computer Company Website">
+                <div class="logo" role="img" aria-label="Oxide Computer Company logo">
+                    <a href="https://oxide.computer/" target="_blank">
+                        <img src="/images/logo.png" alt="Oxide Computer Company logo">
+                    </a>
+                </div>
+            </div>
+        </logo>
         <main>
-            <h1>{{.Site.Title}}</h1>
+            <!-- <h1>{{.Site.Title}}</h1> -->
             <p class="lead">{{.Site.Params.Description}}</p>
             <p>Interested? Send a PR with any improvement to <a href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank" rel="noreferrer"><strong>this repo on GitHub</strong></a> or <a href="https://oxide.computer/careers/product-engineers/" target="_blank"><strong>apply through our careers page</strong></a>.
         </main>

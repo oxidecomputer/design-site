@@ -35,20 +35,47 @@ body {
 
 .parent {
     width: 100vw;
-    height: 100vh;
+    height: 360px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
 }
 
-main {
-    padding: 0 0 30px 30px;
-    max-width: 615px;
+logo,
+main,
+footer {
+    max-width: 500px;
+    width: 100%;
+    padding: 0 2rem;
     z-index: 1;
 }
 
+logo {
+    padding-top: 1rem;
+}
+
+.logo-link {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    font-size: 1rem;
+    text-align: center;
+}
+
 @media only screen and (max-height: 600px) {
-    main {
+    logo,
+    main,
+    footer {
         width: 49%;
         padding-bottom: 10px;
         padding-left: 20px;
@@ -56,11 +83,54 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
-    main {
+    logo,
+    main,
+    footer {
         width: 90%;
-        padding-left: 5px;
+        padding: 5px;
     }
 }
+
+p,
+h1 {
+    margin: 0;
+    padding: var(--text-block-spacing) 0;
+}
+
+main h1 {
+    text-align: center;
+    color: #fff;
+    font-size: var(--title-font-size);
+    font-weight: bold;
+    animation: var(--move-in-animation);
+    animation-delay: calc(var(--move-in-base-delay) * 4);
+}
+
+logo,
+main p,
+footer p {
+    animation: var(--move-in-animation);
+}
+
+main p:nth-of-type(1) {
+    animation-delay: calc(var(--move-in-base-delay) * 5);
+}
+
+main p:nth-child(2) {
+    animation-delay: calc(var(--move-in-base-delay) * 6);
+}
+
+footer p:nth-of-type(1) {
+    animation-delay: calc(var(--move-in-base-delay) * 10);
+}
+
+/* main p:nth-of-type(3) {
+    animation-delay: calc(var(--move-in-base-delay) * 7);
+}
+
+main p:nth-child(4) {
+    animation-delay: calc(var(--move-in-base-delay) * 8);
+} */
 
 a {
     color: var(--brand-green);
