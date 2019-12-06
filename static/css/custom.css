@@ -196,11 +196,28 @@ svg {
     stroke-dasharray: var(--length);
     stroke-dashoffset: var(--length);
     animation: drawLine 1s 1000ms ease-out both;
+
+    /* 
+     * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
+     * both for animation-fill-mode. Instead it just draws the lines without any
+     * animation or draws partial lines.
+     */
+    -webkit-animation: drawLine 1s 1000ms ease-out forwards;
 }
 
 @keyframes drawLine {
     to {
         stroke-dashoffset: 0;
+    }
+}
+
+/* 
+ * Safari Version 13.0.3 also seems to require the from keyword in order to 
+ * properly render the transition, similar to the chrome and firefox renditions.
+ */
+@-webkit-keyframes drawLine {
+    from {
+        stroke-dashoffset : 20%;
     }
 }
 
