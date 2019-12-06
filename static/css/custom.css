@@ -195,14 +195,14 @@ svg {
     stroke-miterlimit:10;
     stroke-dasharray: var(--length);
     stroke-dashoffset: var(--length);
-    animation: drawLine 1s 1000ms ease-out both;
+    animation: drawLine 1s 900ms ease-out both;
 
     /* 
      * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
      * both for animation-fill-mode. Instead it just draws the lines without any
      * animation or draws partial lines.
      */
-    -webkit-animation: drawLine 1s 1000ms ease-out forwards;
+    -webkit-animation: drawLine 1s 900ms ease-out forwards;
 }
 
 @keyframes drawLine {
@@ -226,7 +226,12 @@ svg {
     fill:none;
     stroke:#a7a7a7;
     stroke-linecap:round;
-    animation: drawCircle 1s 800ms both;
+
+    /* 
+     * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
+     * to compensate for inconsistency between browsers.
+     */
+    animation: drawCircle 1s 400ms both;
 }
 
 @keyframes drawCircle {
