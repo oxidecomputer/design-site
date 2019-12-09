@@ -23,6 +23,13 @@
     --text-block-spacing: 0.5em;
 }
 
+[data-theme="dark"] {
+    --primary-color: #48d597;
+    --font-color: #dddddd;
+    --svg-color: #393939;
+    --bg-color: #222222;
+}
+
 @keyframes move-in {
   from {
     transform: translateY(var(--move-in-offset));
@@ -57,6 +64,7 @@ body {
     line-height: var(--base-font-line-height);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: background-color var(--move-in-base-delay) ease-in;
 }
 
 .parent {
@@ -211,6 +219,7 @@ svg {
     stroke-dasharray: var(--length);
     stroke-dashoffset: var(--length);
     animation: drawLine 1s 1000ms ease-out both;
+    transition: stroke var(--move-in-base-delay) ease-in;
 }
 
 @keyframes drawLine {
@@ -225,14 +234,65 @@ svg {
     stroke: var(--font-color);
     stroke-linecap:round;
     animation: drawCircle 1s 800ms both;
+    transition: stroke var(--move-in-base-delay) ease-in;
 }
 
 @keyframes drawCircle {
     from {
         opacity: 0;
     } to {
-        opacity: 1;
+        opacity: 0.6;
     }
+}
+
+/* Toggle Styles */
+#theme-toggle-container {
+    display: flex;
+    align-items: center;
+  }
+
+.theme-toggle {
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-toggle input {
+  display:none;
+}
+
+.slider {
+  border: 1px solid var(--font-color);
+  background: var(--font-color);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: .2s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  background-color: var(--bg-color);
+  content: "";
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  height: 22px;
+  width: 22px;
+  transition: .35s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  border-color: var(--font-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(19px);
 }
 
 /* Portrait */
