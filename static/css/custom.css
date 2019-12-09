@@ -1,9 +1,10 @@
 @charset "UTF-8";
 :root {
     /* color defaults */
-    --brand-green: #48d597;
-    --off-white: #bbb;
-    --dark-grey: #222;
+    --primary-color: #48d597;
+    --font-color: #333333;
+    --svg-color: #d5d5d5;
+    --bg-color: #ffffff;
     /* typeface defaults */
     --title-font-size: 1.8rem;
     --base-font-size: 1.2rem;
@@ -48,8 +49,8 @@ html, body {
 }
 
 body {
-    background-color: var(--dark-grey);
-    color:var(--off-white);
+    background-color: var(--bg-color);
+    color:var(--font-color);
     font-size: var(--base-font-size);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -155,7 +156,7 @@ main p:nth-child(4) {
 } */
 
 a {
-    color: var(--brand-green);
+    color: var(--primary-color);
     -webkit-transition: all var(--move-in-base-delay) ease-in;
     -moz-transition: all var(--move-in-base-delay) ease-in;
     -ms-transition: all var(--move-in-base-delay) ease-in;
@@ -165,8 +166,8 @@ a {
 }
 
 a:hover {
-    color: var(--brand-green);
-    border-bottom: 1px solid var(--brand-green);
+    color: var(--font-color);
+    border-bottom: 1px solid var(--primary-color);
 }
 
 svg {
@@ -185,12 +186,13 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
+    color:var(--font-color);
 }
 
 /* Lines */
 .st0{
     fill:none;
-    stroke:#333;
+    stroke:var(--svg-color);
     stroke-miterlimit:10;
     stroke-miterlimit:10;
     stroke-dasharray: var(--length);
@@ -207,7 +209,7 @@ svg {
 /* Circles */
 .st1{
     fill:none;
-    stroke:#a7a7a7;
+    stroke: var(--font-color);
     stroke-linecap:round;
     animation: drawCircle 1s 800ms both;
 }
