@@ -1,22 +1,29 @@
-const lines = document.querySelector('#lines').children;
+const lines = document.querySelector("#lines").children;
 [...lines].forEach(line => {
-    line.style.setProperty('--length', line.getTotalLength());
+  line.style.setProperty("--length", line.getTotalLength());
 });
 
-const themeToggle = document.querySelector('.theme-toggle input[type="checkbox"]');
-themeToggle.addEventListener('change', switchTheme, false);
+const themeToggle = document.querySelector(
+  '.theme-toggle input[type="checkbox"]'
+);
+themeToggle.addEventListener("change", switchTheme, false);
 
 function switchTheme(e) {
-    const color = e.target.checked ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', color);
-    localStorage.setItem('theme', color);
+  const theme = e.target.checked ? "dark" : "light";
+  updateLogo(theme);
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
 }
 
-const currentTheme = localStorage.getItem('theme') || 'dark';
+function updateLogo(theme) {
+  const companyLogo = document.querySelector("#oxide-logo");
+  companyLogo.src = theme === "dark" ? "/images/logo.png" : "/images/logo.dark.png";
+}
 
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'dark') {
-        themeToggle.checked = true;
-    }
+const currentTheme = localStorage.getItem("theme") || "dark";
+
+document.documentElement.setAttribute("data-theme", currentTheme);
+updateLogo(currentTheme)
+if (currentTheme === "dark") {
+  themeToggle.checked = true;
 }
