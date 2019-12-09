@@ -8,7 +8,9 @@
     /* typeface defaults */
     --title-font-size: 1.8rem;
     --base-font-size: 1.2rem;
-    --base-font-line-height: 28px;
+    --base-font-line-height: 26px;
+    --mobile-base-font-size: 1.0rem;
+    --mobile-base-font-line-height: 22px;
     --small-font-size: 12px;
     --small-font-line-height: 14px;
     /* animations */
@@ -52,11 +54,13 @@ body {
     background-color: var(--bg-color);
     color:var(--font-color);
     font-size: var(--base-font-size);
+    line-height: var(--base-font-line-height);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
 
 .parent {
+    text-align: center;
     width: 100vw;
     height: 360px;
     display: flex;
@@ -80,8 +84,8 @@ logo {
 
 .logo-link {
     display: block;
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     margin: auto;
 }
 
@@ -91,7 +95,7 @@ logo {
 }
 
 footer {
-    font-size: 1rem;
+    font-size: var(--small-font-size);
     text-align: center;
 }
 
@@ -112,6 +116,14 @@ footer {
         width: 90%;
         padding: 5px;
     }
+    .logo-link {
+        width: 4rem;
+        height: 4rem;
+    }
+    body {
+        font-size: var(--mobile-base-font-size);
+        line-height: var(--mobile-base-font-line-height);
+    }
 }
 
 p,
@@ -122,8 +134,8 @@ h1 {
 
 main h1 {
     text-align: center;
-    color: #fff;
     font-size: var(--title-font-size);
+    letter-spacing: -0.05em;
     font-weight: bold;
     animation: var(--move-in-animation);
     animation-delay: calc(var(--move-in-base-delay) * 4);
@@ -163,6 +175,7 @@ a {
     -o-transition: all var(--move-in-base-delay) ease-in;
     transition: all var(--move-in-base-delay) ease-in;
     text-decoration: none;
+    border-bottom: 1px solid transparent;
 }
 
 a:hover {
