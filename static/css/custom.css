@@ -251,6 +251,8 @@ svg {
   }
 
 .theme-toggle {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 6);
   display: inline-block;
   height: 30px;
   position: relative;
