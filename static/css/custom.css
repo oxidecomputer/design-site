@@ -41,9 +41,8 @@
   }
 }
 
-@import url('https://rsms.me/inter/inter.css');
 html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Barlow Semi Condensed', Helvetica, Arial, sans-serif;
 }
 
 /* @supports (font-variation-settings: normal) {
@@ -246,11 +245,6 @@ svg {
 }
 
 /* Toggle Styles */
-#theme-toggle-container {
-    display: flex;
-    align-items: center;
-  }
-
 .theme-toggle {
   animation: var(--move-in-animation);
   animation-delay: calc(var(--move-in-base-delay) * 6);
