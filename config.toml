@@ -5,6 +5,7 @@ canonifyUrls = true
 
 [params]
 description = "Oxide Computer Company is looking for designers who code to help build a new user experience for computing!"
+headline = "We want you"
 github_url = "https://github.com/oxidecomputer"
 twitter_handle = "oxidecomputer"
 google_analytics = "UA-148178470-2"
