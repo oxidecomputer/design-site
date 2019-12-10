@@ -48,7 +48,7 @@
             <div class="logo-link" title="Oxide Computer Company Website">
                 <div class="logo" role="img" aria-label="Oxide Computer Company logo">
                     <a href="https://oxide.computer/" target="_blank">
-                        <img src="/images/logo.png" alt="Oxide Computer Company logo">
+                        <img src="/images/logo.png" alt="Oxide Computer Company logo" id="oxide-logo">
                     </a>
                 </div>
             </div>
@@ -57,19 +57,26 @@
             <!-- <h1>{{.Site.Title}}</h1> -->
             <p class="lead">{{.Site.Params.Description}}</p>
             <p>Interested? Send a PR with any improvement to <a
-                    href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank">this repo on
+                    href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank" rel="noreferrer">this
+                    repo on
                     GitHub</a> or <a href="https://oxide.computer/careers/product-engineers/" target="_blank">apply
                     through our careers page</a>.
         </main>
+        <section id="theme-toggle-container">
+            <label class="theme-toggle" for="checkbox" aria-label="Switch the theme">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+        </section>
         <footer>
             <p class="footer-piece footer-piece--separate">
                 Created by
                 <a href="https://github.com/oxidecomputer/design.oxide.computer/graphs/contributors" target="_blank"
-                    id="contributors"
+                    rel="noreferrer" id="contributors"
                     title="Contributors to the GitHub repository design.oxide.computer by the oxidecomputer organization">0</a>
                 contributors
                 on
-                <a href="https://github.com/oxidecomputer/design.oxide.computer/" target="_blank"
+                <a href="https://github.com/oxidecomputer/design.oxide.computer/" target="_blank" rel="noreferrer"
                     title="GitHub repository design.oxide.computer by the oxidecomputer organization">GitHub</a>.
             </p>
         </footer>
@@ -84,12 +91,7 @@
 
         gtag('config', '{{.Site.Params.google_analytics}}');
     </script>
-    <script>
-        const lines = document.querySelector('#lines').children;
-        [...lines].forEach(line => {
-            line.style.setProperty('--length', line.getTotalLength());
-        });
-    </script>
+    <script src="/js/custom.js"></script>
     <script crossorigin="anonymous" async="async">
         fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors')
             .then(response => {

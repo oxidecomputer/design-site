@@ -1,13 +1,16 @@
 @charset "UTF-8";
 :root {
     /* color defaults */
-    --brand-green: #48d597;
-    --off-white: #bbb;
-    --dark-grey: #222;
+    --primary-color: #48d597;
+    --font-color: #333333;
+    --svg-color: #d5d5d5;
+    --bg-color: #ffffff;
     /* typeface defaults */
     --title-font-size: 1.8rem;
     --base-font-size: 1.2rem;
-    --base-font-line-height: 28px;
+    --base-font-line-height: 26px;
+    --mobile-base-font-size: 1.0rem;
+    --mobile-base-font-line-height: 22px;
     --small-font-size: 12px;
     --small-font-line-height: 14px;
     /* animations */
@@ -18,6 +21,13 @@
     --small-space: 1em;
     --large-space: 2em;
     --text-block-spacing: 0.5em;
+}
+
+[data-theme="dark"] {
+    --primary-color: #48d597;
+    --font-color: #dddddd;
+    --svg-color: #393939;
+    --bg-color: #222222;
 }
 
 @keyframes move-in {
@@ -43,25 +53,27 @@ html {
 } */
 
 html, body {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: var(--dark-grey);
-    color:var(--off-white);
+    background-color: var(--bg-color);
+    color:var(--font-color);
     font-size: var(--base-font-size);
+    line-height: var(--base-font-line-height);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    transition: background-color var(--move-in-base-delay) ease-in;
 }
 
 .parent {
-    width: 100vw;
-    height: 360px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    width: 100vw;
+    height: 360px;
 }
 
 logo,
@@ -79,8 +91,8 @@ logo {
 
 .logo-link {
     display: block;
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     margin: auto;
 }
 
@@ -90,7 +102,7 @@ logo {
 }
 
 footer {
-    font-size: 1rem;
+    font-size: var(--small-font-size);
     text-align: center;
 }
 
@@ -111,6 +123,14 @@ footer {
         width: 90%;
         padding: 5px;
     }
+    .logo-link {
+        width: 4rem;
+        height: 4rem;
+    }
+    body {
+        font-size: var(--mobile-base-font-size);
+        line-height: var(--mobile-base-font-line-height);
+    }
 }
 
 p,
@@ -121,8 +141,8 @@ h1 {
 
 main h1 {
     text-align: center;
-    color: #fff;
     font-size: var(--title-font-size);
+    letter-spacing: -0.05em;
     font-weight: bold;
     animation: var(--move-in-animation);
     animation-delay: calc(var(--move-in-base-delay) * 4);
@@ -155,18 +175,19 @@ main p:nth-child(4) {
 } */
 
 a {
-    color: var(--brand-green);
+    color: var(--primary-color);
     -webkit-transition: all var(--move-in-base-delay) ease-in;
     -moz-transition: all var(--move-in-base-delay) ease-in;
     -ms-transition: all var(--move-in-base-delay) ease-in;
     -o-transition: all var(--move-in-base-delay) ease-in;
     transition: all var(--move-in-base-delay) ease-in;
     text-decoration: none;
+    border-bottom: 1px solid transparent;
 }
 
 a:hover {
-    color: var(--brand-green);
-    border-bottom: 1px solid var(--brand-green);
+    color: var(--font-color);
+    border-bottom: 1px solid var(--primary-color);
 }
 
 svg {
@@ -185,12 +206,13 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
+    color:var(--font-color);
 }
 
 /* Lines */
 .st0{
     fill:none;
-    stroke:#333;
+    stroke:var(--svg-color);
     stroke-miterlimit:10;
     stroke-miterlimit:10;
     stroke-dasharray: var(--length);
@@ -203,6 +225,7 @@ svg {
      * animation or draws partial lines.
      */
     -webkit-animation: drawLine 1s 900ms ease-out forwards;
+    transition: stroke var(--move-in-base-delay) ease-in;
 }
 
 @keyframes drawLine {
@@ -224,7 +247,7 @@ svg {
 /* Circles */
 .st1{
     fill:none;
-    stroke:#a7a7a7;
+    stroke: var(--font-color);
     stroke-linecap:round;
 
     /* 
@@ -232,14 +255,67 @@ svg {
      * to compensate for inconsistency between browsers.
      */
     animation: drawCircle 1s 400ms both;
+    transition: stroke var(--move-in-base-delay) ease-in;
 }
 
 @keyframes drawCircle {
     from {
         opacity: 0;
     } to {
-        opacity: 1;
+        opacity: 0.6;
     }
+}
+
+/* Toggle Styles */
+#theme-toggle-container {
+    display: flex;
+    align-items: center;
+  }
+
+.theme-toggle {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 6);
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-toggle input {
+  display:none;
+}
+
+.slider {
+  border: 1px solid var(--font-color);
+  background: var(--font-color);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: .2s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  background-color: var(--bg-color);
+  content: "";
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  height: 22px;
+  width: 22px;
+  transition: .35s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  border-color: var(--font-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(19px);
 }
 
 /* Portrait */
