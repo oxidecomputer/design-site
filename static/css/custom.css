@@ -217,7 +217,14 @@ svg {
     stroke-miterlimit:10;
     stroke-dasharray: var(--length);
     stroke-dashoffset: var(--length);
-    animation: drawLine 1s 1000ms ease-out both;
+    animation: drawLine 1s 900ms ease-out both;
+
+    /* 
+     * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
+     * both for animation-fill-mode. Instead it just draws the lines without any
+     * animation or draws partial lines.
+     */
+    -webkit-animation: drawLine 1s 900ms ease-out forwards;
     transition: stroke var(--move-in-base-delay) ease-in;
 }
 
@@ -227,12 +234,27 @@ svg {
     }
 }
 
+/* 
+ * Safari Version 13.0.3 also seems to require the from keyword in order to 
+ * properly render the transition, similar to the chrome and firefox renditions.
+ */
+@-webkit-keyframes drawLine {
+    from {
+        stroke-dashoffset : 20%;
+    }
+}
+
 /* Circles */
 .st1{
     fill:none;
     stroke: var(--font-color);
     stroke-linecap:round;
-    animation: drawCircle 1s 800ms both;
+
+    /* 
+     * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
+     * to compensate for inconsistency between browsers.
+     */
+    animation: drawCircle 1s 400ms both;
     transition: stroke var(--move-in-base-delay) ease-in;
 }
 
