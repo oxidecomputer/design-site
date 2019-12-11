@@ -10,20 +10,12 @@ themeToggle.addEventListener("change", switchTheme, false);
 
 function switchTheme(e) {
   const theme = e.target.checked ? "dark" : "light";
-  updateLogo(theme);
   document.documentElement.setAttribute("data-theme", theme);
   localStorage.setItem("theme", theme);
 }
 
-function updateLogo(theme) {
-  const companyLogo = document.querySelector("#oxide-logo");
-  companyLogo.src = theme === "dark" ? "/images/logo.png" : "/images/logo.dark.png";
-}
-
 const currentTheme = localStorage.getItem("theme") || "dark";
-
 document.documentElement.setAttribute("data-theme", currentTheme);
-updateLogo(currentTheme)
 if (currentTheme === "dark") {
   themeToggle.checked = true;
 }

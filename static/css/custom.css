@@ -2,7 +2,7 @@
 :root {
     /* color defaults */
     --primary-color: #48d597;
-    --font-color: #333333;
+    --font-color: #3A3B39;
     --svg-color: #d5d5d5;
     --bg-color: #ffffff;
     /* typeface defaults */
@@ -91,9 +91,8 @@ logo {
     height: 5rem;
 }
 
-.logo img {
-    height: 100%;
-    width: 100%;
+#LogoType {
+    fill: var(--font-color);
 }
 
 footer {
@@ -218,7 +217,7 @@ a:hover {
     border-bottom: 1px solid var(--primary-color);
 }
 
-svg {
+.svg > svg {
     min-width: 100vw;
     min-height: 100vh;
     flex: none;
@@ -346,20 +345,20 @@ input:checked + .slider:before {
 /* Portrait */
 @media screen and (orientation:portrait) {
     /* Portrait styles */
-    svg {
+    .svg > svg {
         height: 180vh;
     }
 }
 /* Landscape */
 @media screen and (orientation:landscape) {
     /* Landscape styles */
-    svg {
+    .svg > svg {
         width: 180vw;
     }
 }
 
 @media only screen and (max-width: 1024px) and (orientation:landscape) {
-    svg {
+    .svg > svg {
         width: 240vw;
     }
 }
