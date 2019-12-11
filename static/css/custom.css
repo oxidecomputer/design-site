@@ -41,16 +41,9 @@
   }
 }
 
-@import url('https://rsms.me/inter/inter.css');
 html {
-    font-family: 'Inter', sans-serif;
+    font-family: "HK Grotesk","HK Grotesk Legacy","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
-
-/* @supports (font-variation-settings: normal) {
-    html {
-      font-family: 'Inter var', sans-serif;
-    }
-} */
 
 html, body {
     margin: 0;
@@ -219,7 +212,7 @@ svg {
     stroke-dashoffset: var(--length);
     animation: drawLine 1s 900ms ease-out both;
 
-    /* 
+    /*
      * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
      * both for animation-fill-mode. Instead it just draws the lines without any
      * animation or draws partial lines.
@@ -234,8 +227,8 @@ svg {
     }
 }
 
-/* 
- * Safari Version 13.0.3 also seems to require the from keyword in order to 
+/*
+ * Safari Version 13.0.3 also seems to require the from keyword in order to
  * properly render the transition, similar to the chrome and firefox renditions.
  */
 @-webkit-keyframes drawLine {
@@ -250,7 +243,7 @@ svg {
     stroke: var(--font-color);
     stroke-linecap:round;
 
-    /* 
+    /*
      * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
      * to compensate for inconsistency between browsers.
      */
