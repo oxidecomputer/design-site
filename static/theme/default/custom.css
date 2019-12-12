@@ -32,6 +32,8 @@
     --bg-color: #222222;
 }
 
+@import url('HKGrotesk.css');
+
 @keyframes move-in {
   from {
     transform: translateY(var(--move-in-offset));
