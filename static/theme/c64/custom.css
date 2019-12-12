@@ -2,18 +2,20 @@
 :root {
     /* color defaults */
     --primary-color: #48d597;
-    --font-color: #3A3B39;
+    --font-color: #333333;
     --svg-color: #d5d5d5;
     --bg-color: #ffffff;
+    --bg-img: url('/theme/c64/logo.dark.png') center center no-repeat;
+    --body-bg-img: url('/theme/c64/bg.white.png') center center no-repeat;
     /* typeface defaults */
-    --title-font-size: 7vw;
-    --title-min-font-size: 42px;
-    --title-max-font-size: 82px;
-    --base-font-size: 1.2rem;
-    --base-font-line-height: 26px;
-    --mobile-base-font-size: 1.0rem;
-    --mobile-base-font-line-height: 22px;
-    --small-font-size: 0.7em;
+    --title-font-size: 4vw;
+    --title-min-font-size: 18px;
+    --title-max-font-size: 42px;
+    --base-font-size: 0.7rem;
+    --base-font-line-height: 22px;
+    --mobile-base-font-size: 0.6rem;
+    --mobile-base-font-line-height: 18px;
+    --small-font-size: 0.4em;
     --small-font-line-height: 14px;
     /* animations */
     --move-in-offset: 20px;
@@ -27,9 +29,21 @@
 
 [data-theme="dark"] {
     --primary-color: #48d597;
-    --font-color: #efefef;
-    --svg-color: #393939;
-    --bg-color: #222222;
+    --font-color: #ffffff;
+    --svg-color: #111111;
+    --bg-color: #000000;
+    --bg-img: url('/theme/c64/logo.png') center center no-repeat;
+    --body-bg-img: url('/theme/c64/bg.dark.png') center center no-repeat;
+}
+
+@font-face {
+    font-family: 'C64ProMonoRegular';
+    src: url('/theme/c64/c64_pro_mono_v1.0-style.eot') format('embedded-opentype');
+    src: url('/theme/c64/c64_pro_mono_v1.0-style.eot?#iefix') format('embedded-opentype'),
+         url('/theme/c64/c64_pro_mono_v1.0-style.woff') format('woff'),
+         url('/theme/c64/c64_pro_mono_v1.0-style.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @keyframes move-in {
@@ -43,28 +57,39 @@
   }
 }
 
+/* cursor animations */
+@keyframes animated-cursor{
+    from{border-right-color: var(--font-color);}
+    to{border-right-color: transparent;}
+  }
+
 html {
-    font-family: "HK Grotesk","HK Grotesk Legacy","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: 'C64ProMonoRegular', Helvetica, Arial, sans-serif;
+    text-align: center;
 }
 
 html, body {
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 body {
+    border: 30px solid var(--primary-color);
+    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+    background: var(--body-bg-img);
     background-color: var(--bg-color);
     color:var(--font-color);
     font-size: var(--base-font-size);
     line-height: var(--base-font-line-height);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    transition: background-color var(--move-in-base-delay) ease-in;
+    transition: background-color 20ms ease-in;
 }
 
 .parent {
-    width: 100vw;
-    min-height: 460px;
+    width: 100%;
+    min-height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -75,7 +100,7 @@ logo,
 main,
 #theme-toggle-container,
 footer {
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     padding: 0 2rem;
     z-index: 1;
@@ -85,14 +110,15 @@ logo {
     padding-top: 1rem;
 }
 
-.logo-link {
+.logo-link,
+.logo-link a {
+    margin: 0 auto;
     display: block;
-    width: 5rem;
-    height: 5rem;
+    width: 16rem;
+    height: 16rem;
 }
-
-#LogoType {
-    fill: var(--font-color);
+.logo-link a:hover {
+    border: none;
 }
 
 footer {
@@ -124,28 +150,13 @@ main h1 {
     }
   }
 
-  @media only screen and (max-height: 600px) {
-    logo,
-    main,
-    #theme-toggle-container,
-    footer {
-        width: 49%;
-        padding-bottom: 10px;
-        padding-left: 20px;
-    }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
     logo,
     main,
     #theme-toggle-container,
     footer {
         width: 90%;
         padding: 5px;
-    }
-    .logo-link {
-        width: 4rem;
-        height: 4rem;
     }
     body {
         font-size: var(--mobile-base-font-size);
@@ -156,23 +167,21 @@ main h1 {
     }
 }
 
+@media only screen and (max-width: 1024px) {
+    .logo-link {
+        width: 9rem;
+        height: 9rem;
+    }
+}
+
 main h3 {
     font-size: 0.75em;
-    margin: 2em 0 0.25em 0;
+    margin: -5em 0 5.25em 0;
     padding: 0 0 0 3em;
     position: relative;
     color: var(--primary-color);
     animation: var(--move-in-animation);
     animation-delay: calc(var(--move-in-base-delay) * 4);
-}
-main h3::before {
-    content: '';
-    position: absolute;
-    height: 2px;
-    width: 2.25em;
-    left: 0;
-    top: calc(50% - 1px);
-    background: currentColor;
 }
 
 logo,
@@ -187,6 +196,16 @@ main p:nth-of-type(1) {
 
 main p:nth-child(2) {
     animation-delay: calc(var(--move-in-base-delay) * 6);
+}
+main p.content::after {
+    content: '';
+    display: block;
+    position: absolute;
+    margin-left: 47%;
+    border-right: 15px solid var(--font-color);
+    width: 10px;
+    height: 20px;
+    animation: animated-cursor 600ms steps(29,end) infinite;
 }
 
 footer p:nth-of-type(1) {
@@ -216,81 +235,16 @@ a:hover {
     color: var(--font-color);
     border-bottom: 1px solid var(--primary-color);
 }
-
-.svg > svg {
-    min-width: 100vw;
-    min-height: 100vh;
-    flex: none;
+svg,
+logo img {
+    display: none;
 }
 
-.svg {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:var(--font-color);
-}
-
-/* Lines */
-.st0{
-    fill:none;
-    stroke:var(--svg-color);
-    stroke-miterlimit:10;
-    stroke-miterlimit:10;
-    stroke-dasharray: var(--length);
-    stroke-dashoffset: var(--length);
-    animation: drawLine 1s 900ms ease-out both;
-
-    /*
-     * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
-     * both for animation-fill-mode. Instead it just draws the lines without any
-     * animation or draws partial lines.
-     */
-    -webkit-animation: drawLine 1s 900ms ease-out forwards;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawLine {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/*
- * Safari Version 13.0.3 also seems to require the from keyword in order to
- * properly render the transition, similar to the chrome and firefox renditions.
- */
-@-webkit-keyframes drawLine {
-    from {
-        stroke-dashoffset : 20%;
-    }
-}
-
-/* Circles */
-.st1{
-    fill:none;
-    stroke: var(--font-color);
-    stroke-linecap:round;
-
-    /*
-     * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
-     * to compensate for inconsistency between browsers.
-     */
-    animation: drawCircle 1s 400ms both;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawCircle {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 0.6;
-    }
+.logo {
+    height: 100%;
+    width: 100%;
+    background: var(--bg-img);
+    background-size: contain;
 }
 
 /* Toggle Styles */
@@ -319,7 +273,7 @@ a:hover {
   bottom: 0;
   left: 0;
   transition: .2s;
-  border-radius: 30px;
+  border-radius: 0px;
 }
 
 .slider:before {
@@ -331,7 +285,7 @@ a:hover {
   height: 22px;
   width: 22px;
   transition: .35s;
-  border-radius: 50%;
+  border-radius: 0%;
 }
 
 input:checked + .slider {
@@ -342,23 +296,3 @@ input:checked + .slider:before {
   transform: translateX(19px);
 }
 
-/* Portrait */
-@media screen and (orientation:portrait) {
-    /* Portrait styles */
-    .svg > svg {
-        height: 180vh;
-    }
-}
-/* Landscape */
-@media screen and (orientation:landscape) {
-    /* Landscape styles */
-    .svg > svg {
-        width: 180vw;
-    }
-}
-
-@media only screen and (max-width: 1024px) and (orientation:landscape) {
-    .svg > svg {
-        width: 240vw;
-    }
-}

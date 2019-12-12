@@ -19,3 +19,19 @@ document.documentElement.setAttribute("data-theme", currentTheme);
 if (currentTheme === "dark") {
   themeToggle.checked = true;
 }
+
+const activeStyleSheet = document.getElementById("stylesheet");
+const c64Toggle = document.querySelector(".c64Toggle");
+c64Toggle.style.cursor = "pointer";
+c64Toggle.onclick = function() {
+  setStylesheet(
+    `/theme/${
+      // activeStyleSheet.href.includes("c64") ? "default" : "c64"
+      "c64"
+    }/custom.css`
+  );
+};
+
+function setStylesheet(styleSheet) {
+  activeStyleSheet.href = styleSheet;
+}
