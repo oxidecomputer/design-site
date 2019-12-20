@@ -1,31 +1,398 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- <router-view /> -->
+    <Circuit></Circuit>
+    <div class="parent">
+      <OxideLogo></OxideLogo>
+      <Main></Main>
+      <Theme></Theme>
+      <Footer></Footer>
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+import Circuit from '@/components/Circuit.vue'
+import OxideLogo from '@/components/OxideLogo.vue'
+import Main from '@/components/Main.vue'
+import Theme from '@/components/Theme.vue'
+import Footer from '@/components/Footer.vue'
+
+export default {
+  name: 'Home',
+  components: {
+    Circuit,
+    OxideLogo,
+    Main,
+    Theme,
+    Footer
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
+@charset "UTF-8";
+:root {
+    /* color defaults */
+    --primary-color: #48d597;
+    --font-color: #efefef;
+    --svg-color: #393939;
+    --bg-color: #222222;
+    /* typeface defaults */
+    --title-font-size: 7vw;
+    --title-min-font-size: 42px;
+    --title-max-font-size: 82px;
+    --base-font-size: 1.2rem;
+    --base-font-line-height: 26px;
+    --mobile-base-font-size: 1.0rem;
+    --mobile-base-font-line-height: 22px;
+    --small-font-size: 0.7em;
+    --small-font-line-height: 14px;
+    /* animations */
+    --move-in-offset: 20px;
+    --move-in-animation: 1s both move-in;
+    --move-in-base-delay: 80ms;
+    /* spacing */
+    --small-space: 1em;
+    --large-space: 2em;
+    --text-block-spacing: 0.5em;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+[data-theme="dark"] {
+    --primary-color: #48d597;
+    --font-color: #efefef;
+    --svg-color: #393939;
+    --bg-color: #222222;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+@keyframes move-in {
+  from {
+    transform: translateY(var(--move-in-offset));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+html {
+    font-family: "HK Grotesk","HK Grotesk Legacy","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color:var(--font-color);
+    font-size: var(--base-font-size);
+    line-height: var(--base-font-line-height);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color var(--move-in-base-delay) ease-in;
+}
+
+.parent {
+    width: 100vw;
+    min-height: 460px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+#logo,
+main,
+#theme-toggle-container,
+footer {
+    max-width: 600px;
+    width: 100%;
+    padding: 0 2rem;
+    z-index: 1;
+}
+
+#logo {
+    padding-top: 1rem;
+}
+
+.logo-link {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+}
+
+#LogoType {
+    fill: var(--font-color);
+}
+
+footer {
+    font-size: var(--small-font-size);
+}
+
+p,
+h1,
+h3 {
+    margin: 0;
+    padding: var(--text-block-spacing) 0;
+}
+
+main h1 {
+    font-size: var(--title-font-size);
+    letter-spacing: -0.05em;
+    font-weight: 800;
+    animation: var(--move-in-animation);
+    animation-delay: calc(var(--move-in-base-delay) * 4);
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 0.9;
+    padding-top: 0;
+}
+
+@media screen and (min-width: 1280px) {
+    main h1 {
+       font-size: var(--title-max-font-size);
+    }
+  }
+
+  @media only screen and (max-height: 600px) {
+    #logo,
+    main,
+    #theme-toggle-container,
+    footer {
+        width: 49%;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #logo,
+    main,
+    #theme-toggle-container,
+    footer {
+        width: 90%;
+        padding: 5px;
+    }
+    .logo-link {
+        width: 4rem;
+        height: 4rem;
+    }
+    body {
+        font-size: var(--mobile-base-font-size);
+        line-height: var(--mobile-base-font-line-height);
+    }
+    main h1 {
+       font-size: var(--title-min-font-size);
+    }
+}
+
+main h3 {
+    font-size: 0.75em;
+    margin: 2em 0 0.25em 0;
+    padding: 0 0 0 3em;
+    position: relative;
+    color: var(--primary-color);
+    animation: var(--move-in-animation);
+    animation-delay: calc(var(--move-in-base-delay) * 4);
+}
+main h3::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 2.25em;
+    left: 0;
+    top: calc(50% - 1px);
+    background: currentColor;
+}
+
+#logo,
+main p,
+footer p {
+    animation: var(--move-in-animation);
+}
+
+main p:nth-of-type(1) {
+    animation-delay: calc(var(--move-in-base-delay) * 5);
+}
+
+main p:nth-child(2) {
+    animation-delay: calc(var(--move-in-base-delay) * 6);
+}
+
+footer p:nth-of-type(1) {
+    animation-delay: calc(var(--move-in-base-delay) * 10);
+}
+
+/* main p:nth-of-type(3) {
+    animation-delay: calc(var(--move-in-base-delay) * 7);
+}
+
+main p:nth-child(4) {
+    animation-delay: calc(var(--move-in-base-delay) * 8);
+} */
+
+a {
+    color: var(--primary-color);
+    -webkit-transition: all var(--move-in-base-delay) ease-in;
+    -moz-transition: all var(--move-in-base-delay) ease-in;
+    -ms-transition: all var(--move-in-base-delay) ease-in;
+    -o-transition: all var(--move-in-base-delay) ease-in;
+    transition: all var(--move-in-base-delay) ease-in;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: var(--font-color);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.svg > svg {
+    min-width: 100vw;
+    min-height: 100vh;
+    flex: none;
+}
+
+.svg {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:var(--font-color);
+}
+
+/* Lines */
+.st0{
+    fill:none;
+    stroke:var(--svg-color);
+    stroke-miterlimit:10;
+    stroke-miterlimit:10;
+    stroke-dasharray: var(--length);
+    stroke-dashoffset: var(--length);
+    animation: drawLine 1s 900ms ease-out both;
+
+    /*
+     * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
+     * both for animation-fill-mode. Instead it just draws the lines without any
+     * animation or draws partial lines.
+     */
+    -webkit-animation: drawLine 1s 900ms ease-out forwards;
+    transition: stroke var(--move-in-base-delay) ease-in;
+}
+
+@keyframes drawLine {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/*
+ * Safari Version 13.0.3 also seems to require the from keyword in order to
+ * properly render the transition, similar to the chrome and firefox renditions.
+ */
+@-webkit-keyframes drawLine {
+    from {
+        stroke-dashoffset : 20%;
+    }
+}
+
+/* Circles */
+.st1{
+    fill:none;
+    stroke: var(--font-color);
+    stroke-linecap:round;
+
+    /*
+     * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
+     * to compensate for inconsistency between browsers.
+     */
+    animation: drawCircle 1s 400ms both;
+    transition: stroke var(--move-in-base-delay) ease-in;
+}
+
+@keyframes drawCircle {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 0.6;
+    }
+}
+
+/* Toggle Styles */
+.theme-toggle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 6);
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-toggle input {
+  display:none;
+}
+
+.slider {
+  border: 1px solid var(--font-color);
+  background: var(--font-color);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: .2s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  background-color: var(--bg-color);
+  content: "";
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  height: 22px;
+  width: 22px;
+  transition: .35s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  border-color: var(--font-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(19px);
+}
+
+/* Portrait */
+@media screen and (orientation:portrait) {
+    /* Portrait styles */
+    .svg > svg {
+        height: 180vh;
+    }
+}
+/* Landscape */
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+    .svg > svg {
+        width: 180vw;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (orientation:landscape) {
+    .svg > svg {
+        width: 240vw;
+    }
 }
 </style>
