@@ -2,30 +2,30 @@
   <div id="app">
     <!-- <router-view /> -->
     <Circuit></Circuit>
-    <div class="parent">
+    <!-- <div class="parent">
       <OxideLogo></OxideLogo>
       <Main></Main>
       <Theme></Theme>
       <Footer></Footer>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import Circuit from '@/components/Circuit.vue'
-import OxideLogo from '@/components/OxideLogo.vue'
-import Main from '@/components/Main.vue'
-import Theme from '@/components/Theme.vue'
-import Footer from '@/components/Footer.vue'
+// import OxideLogo from '@/components/OxideLogo.vue'
+// import Main from '@/components/Main.vue'
+// import Theme from '@/components/Theme.vue'
+// import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'Home',
   components: {
-    Circuit,
-    OxideLogo,
-    Main,
-    Theme,
-    Footer
+    Circuit
+    // OxideLogo,
+    // Main,
+    // Theme,
+    // Footer
   }
 }
 </script>
@@ -250,82 +250,6 @@ a:hover {
     border-bottom: 1px solid var(--primary-color);
 }
 
-.svg > svg {
-    min-width: 100vw;
-    min-height: 100vh;
-    flex: none;
-}
-
-.svg {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:var(--font-color);
-}
-
-/* Lines */
-.st0{
-    fill:none;
-    stroke:var(--svg-color);
-    stroke-miterlimit:10;
-    stroke-miterlimit:10;
-    stroke-dasharray: var(--length);
-    stroke-dashoffset: var(--length);
-    animation: drawLine 1s 900ms ease-out both;
-
-    /*
-     * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
-     * both for animation-fill-mode. Instead it just draws the lines without any
-     * animation or draws partial lines.
-     */
-    -webkit-animation: drawLine 1s 900ms ease-out forwards;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawLine {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/*
- * Safari Version 13.0.3 also seems to require the from keyword in order to
- * properly render the transition, similar to the chrome and firefox renditions.
- */
-@-webkit-keyframes drawLine {
-    from {
-        stroke-dashoffset : 20%;
-    }
-}
-
-/* Circles */
-.st1{
-    fill:none;
-    stroke: var(--font-color);
-    stroke-linecap:round;
-
-    /*
-     * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
-     * to compensate for inconsistency between browsers.
-     */
-    animation: drawCircle 1s 400ms both;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawCircle {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 0.6;
-    }
-}
-
 /* Toggle Styles */
 .theme-toggle {
   margin-top: 20px;
@@ -373,26 +297,5 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(19px);
-}
-
-/* Portrait */
-@media screen and (orientation:portrait) {
-    /* Portrait styles */
-    .svg > svg {
-        height: 180vh;
-    }
-}
-/* Landscape */
-@media screen and (orientation:landscape) {
-    /* Landscape styles */
-    .svg > svg {
-        width: 180vw;
-    }
-}
-
-@media only screen and (max-width: 1024px) and (orientation:landscape) {
-    .svg > svg {
-        width: 240vw;
-    }
 }
 </style>
