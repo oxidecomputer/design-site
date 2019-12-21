@@ -9,9 +9,9 @@
 :root {
     /* color defaults */
     --primary-color: #48d597;
-    --font-color: #efefef;
-    --svg-color: #393939;
-    --bg-color: #222222;
+    --font-color: #3A3B39;
+    --svg-color: #d5d5d5;
+    --bg-color: #ffffff;
     /* typeface defaults */
     --title-font-size: 7vw;
     --title-min-font-size: 42px;

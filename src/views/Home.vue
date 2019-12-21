@@ -51,16 +51,4 @@ export default {
   flex-direction: column;
   flex: none;
 }
-.canvas {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--font-color);
-}
 </style>
