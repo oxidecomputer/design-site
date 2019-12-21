@@ -1,8 +1,8 @@
 <template>
   <main>
-    <h3>Oxide Computer Company</h3>
-    <h1>We want you</h1>
-    <p class="lead">Oxide Computer Company is looking for designers and engineers who design and code to help build a new user experience for computing!</p>
+    <h3>{{title}}</h3>
+    <h1>{{headline}}</h1>
+    <p class="lead">{{description}}</p>
     <p>
       Interested? Send a PR with any improvement to
       <a
@@ -21,7 +21,8 @@
 
 <script>
 export default {
-  name: 'Campaign'
+  name: 'Campaign',
+  props: ['title', 'headline', 'description']
 }
 </script>
 

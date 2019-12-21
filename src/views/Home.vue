@@ -3,7 +3,11 @@
     <Circuit></Circuit>
     <div class="campaign">
       <OxideLogo></OxideLogo>
-      <Campaign></Campaign>
+      <Campaign
+        :title="campaign.title"
+        :headline="campaign.headline"
+        :description="campaign.description"
+      ></Campaign>
       <ThemeToggle></ThemeToggle>
       <Contributors></Contributors>
     </div>
@@ -25,7 +29,14 @@ export default {
     Campaign,
     ThemeToggle,
     Contributors
-  }
+  },
+  data: () => ({
+    campaign: {
+      title: 'Oxide Computer Company',
+      headline: 'We want you',
+      description: 'Oxide Computer Company is looking for designers and engineers who design and code to help build a new user experience for computing!'
+    }
+  })
 }
 </script>
 

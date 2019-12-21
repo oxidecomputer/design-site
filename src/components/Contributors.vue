@@ -30,7 +30,6 @@ export default {
   mounted () {
     fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors')
       .then(response => {
-        console.log(response.status)
         if (response.status !== 200) {
           throw new Error(`status code = ${response.status}`)
         }
