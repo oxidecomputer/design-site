@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="description" content="Oxide Computer Company is looking for designers and engineers who design and code to help build a new user experience for computing!">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>design.oxide.computer</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but oxide-website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= VUE_APP_GOOGLE_ANALYTICS %>"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', '<%= VUE_APP_GOOGLE_ANALYTICS %>');
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description"
+    content="Oxide Computer Company is looking for designers and engineers who design and code to help build a new user experience for computing!">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>Oxide Computer Company</title>
+
+  <!-- twitter card meta tags -->
+  <meta property="twitter:account_id" content="285428413" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@oxidecomputer}">
+  <meta name="twitter:creator" content="@oxidecomputer">
+  <meta name="twitter:title" content="Oxide Computer Company: Design">
+  <meta name="twitter:description" content="Oxide Computer Company is looking for designers and engineers who design and code to help build a new user experience for computing!">
+  <meta name="twitter:image" content="<%= BASE_URL %>/img/logo.jpg">
+  <meta name="twitter:domain" content="Oxide Computer Company">
+
+  <!-- facebook open graph tags -->
+  <meta property="og:title" content="Oxide Computer Company: Design" />
+  <meta property="og:Section" content="website" />
+  <meta property="og:url" content="<%= BASE_URL %>" />
+  <meta property="og:site_name" content="Oxide Computer Company" />
+  <meta property="fb:admins" content="1018260045" />
+  <meta property="og:description" content="Oxide Computer Company is looking for designers and engineers who design and code to help build a new user experience for computing!" />
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but oxide-website doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= VUE_APP_GOOGLE_ANALYTICS %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', '<%= VUE_APP_GOOGLE_ANALYTICS %>');
+  </script>
+</body>
+
 </html>

@@ -27,8 +27,8 @@ export default {
   data: () => ({
     contributors: 0
   }),
-  mounted () {
-    fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors')
+  async mounted () {
+    await fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors')
       .then(response => {
         if (response.status !== 200) {
           throw new Error(`status code = ${response.status}`)
