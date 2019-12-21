@@ -4,6 +4,8 @@
 
 <style>
 @charset "UTF-8";
+@import url("./assets/css/HKGrotesk.css");
+
 :root {
     /* color defaults */
     --primary-color: #48d597;
