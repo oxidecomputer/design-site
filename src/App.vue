@@ -1,34 +1,6 @@
 <template>
-  <div id="app">
-    <!-- <router-view /> -->
-    <Circuit></Circuit>
-    <!-- <div class="parent">
-      <OxideLogo></OxideLogo>
-      <Main></Main>
-      <Theme></Theme>
-      <Footer></Footer>
-    </div> -->
-  </div>
+    <router-view />
 </template>
-
-<script>
-import Circuit from '@/components/Circuit.vue'
-// import OxideLogo from '@/components/OxideLogo.vue'
-// import Main from '@/components/Main.vue'
-// import Theme from '@/components/Theme.vue'
-// import Footer from '@/components/Footer.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    Circuit
-    // OxideLogo,
-    // Main,
-    // Theme,
-    // Footer
-  }
-}
-</script>
 
 <style>
 @charset "UTF-8";
@@ -93,15 +65,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     transition: background-color var(--move-in-base-delay) ease-in;
-}
-
-.parent {
-    width: 100vw;
-    min-height: 460px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
 }
 
 #logo,

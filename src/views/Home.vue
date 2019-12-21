@@ -1,11 +1,11 @@
 <template>
   <div>
     <Circuit></Circuit>
-    <div class="parent">
+    <div class="campaign">
       <OxideLogo></OxideLogo>
-      <Main></Main>
-      <Theme></Theme>
-      <Footer></Footer>
+      <Campaign></Campaign>
+      <ThemeToggle></ThemeToggle>
+      <Contributors></Contributors>
     </div>
   </div>
 </template>
@@ -13,21 +13,43 @@
 <script>
 import Circuit from '@/components/Circuit.vue'
 import OxideLogo from '@/components/OxideLogo.vue'
-import Main from '@/components/Main.vue'
-import Theme from '@/components/Theme.vue'
-import Footer from '@/components/Footer.vue'
+import Campaign from '@/components/Campaign.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
+import Contributors from '@/components/Contributors.vue'
 
 export default {
   name: 'Home',
   components: {
     Circuit,
     OxideLogo,
-    Main,
-    Theme,
-    Footer
+    Campaign,
+    ThemeToggle,
+    Contributors
   }
 }
 </script>
 
 <style scoped>
+.campaign {
+  width: 100vw;
+  height: 100vh;
+  min-height: 460px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: none;
+}
+.canvas {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-color);
+}
 </style>

@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Theme'
+  name: 'ThemeToggle'
 }
 </script>
 

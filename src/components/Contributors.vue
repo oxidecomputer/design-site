@@ -8,7 +8,7 @@
         rel="noreferrer"
         id="contributors"
         title="Contributors to the GitHub repository design.oxide.computer by the oxidecomputer organization"
-      >0</a>
+      >{{contributors}}</a>
       contributors
       on
       <a
@@ -23,10 +23,28 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Contributors',
+  data: () => ({
+    contributors: 0
+  }),
+  mounted () {
+    fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors')
+      .then(response => {
+        console.log(response.status)
+        if (response.status !== 200) {
+          throw new Error(`status code = ${response.status}`)
+        }
+        return response.json()
+      })
+      .then(data => {
+        if (data) {
+          this.contributors = data.length
+        }
+      })
+      .catch(err => console.log('Unable to retrieve number of contributors from github', err))
+  }
 }
 </script>
 
 <style scoped>
-
 </style>
