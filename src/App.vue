@@ -1,4 +1,11 @@
+<template>
+    <router-view />
+</template>
+
+<style>
 @charset "UTF-8";
+@import url("./assets/css/HKGrotesk.css");
+
 :root {
     /* color defaults */
     --primary-color: #48d597;
@@ -62,16 +69,7 @@ body {
     transition: background-color var(--move-in-base-delay) ease-in;
 }
 
-.parent {
-    width: 100vw;
-    min-height: 460px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-}
-
-logo,
+#logo,
 main,
 #theme-toggle-container,
 footer {
@@ -81,7 +79,7 @@ footer {
     z-index: 1;
 }
 
-logo {
+#logo {
     padding-top: 1rem;
 }
 
@@ -125,7 +123,7 @@ main h1 {
   }
 
   @media only screen and (max-height: 600px) {
-    logo,
+    #logo,
     main,
     #theme-toggle-container,
     footer {
@@ -136,7 +134,7 @@ main h1 {
 }
 
 @media only screen and (max-width: 600px) {
-    logo,
+    #logo,
     main,
     #theme-toggle-container,
     footer {
@@ -175,7 +173,7 @@ main h3::before {
     background: currentColor;
 }
 
-logo,
+#logo,
 main p,
 footer p {
     animation: var(--move-in-animation);
@@ -215,82 +213,6 @@ a {
 a:hover {
     color: var(--font-color);
     border-bottom: 1px solid var(--primary-color);
-}
-
-.svg > svg {
-    min-width: 100vw;
-    min-height: 100vh;
-    flex: none;
-}
-
-.svg {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:var(--font-color);
-}
-
-/* Lines */
-.st0{
-    fill:none;
-    stroke:var(--svg-color);
-    stroke-miterlimit:10;
-    stroke-miterlimit:10;
-    stroke-dasharray: var(--length);
-    stroke-dashoffset: var(--length);
-    animation: drawLine 1s 900ms ease-out both;
-
-    /*
-     * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
-     * both for animation-fill-mode. Instead it just draws the lines without any
-     * animation or draws partial lines.
-     */
-    -webkit-animation: drawLine 1s 900ms ease-out forwards;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawLine {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/*
- * Safari Version 13.0.3 also seems to require the from keyword in order to
- * properly render the transition, similar to the chrome and firefox renditions.
- */
-@-webkit-keyframes drawLine {
-    from {
-        stroke-dashoffset : 20%;
-    }
-}
-
-/* Circles */
-.st1{
-    fill:none;
-    stroke: var(--font-color);
-    stroke-linecap:round;
-
-    /*
-     * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
-     * to compensate for inconsistency between browsers.
-     */
-    animation: drawCircle 1s 400ms both;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawCircle {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 0.6;
-    }
 }
 
 /* Toggle Styles */
@@ -341,24 +263,4 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(19px);
 }
-
-/* Portrait */
-@media screen and (orientation:portrait) {
-    /* Portrait styles */
-    .svg > svg {
-        height: 180vh;
-    }
-}
-/* Landscape */
-@media screen and (orientation:landscape) {
-    /* Landscape styles */
-    .svg > svg {
-        width: 180vw;
-    }
-}
-
-@media only screen and (max-width: 1024px) and (orientation:landscape) {
-    .svg > svg {
-        width: 240vw;
-    }
-}
+</style>
