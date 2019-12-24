@@ -19,3 +19,10 @@ document.documentElement.setAttribute("data-theme", currentTheme);
 if (currentTheme === "dark") {
   themeToggle.checked = true;
 }
+
+function setGithubContributors(contributors) {
+  if (contributors === undefined ) {
+    return;
+  }
+  document.getElementById('contributors').innerText = contributors.length + ' contributors';
+}
