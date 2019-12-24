@@ -94,7 +94,7 @@
     </script>
     <script src="/js/custom.js"></script>
     <script crossorigin="anonymous" async="async">
-        fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributor')
+        fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors')
             .then(response => {
                 if (response.status !== 200) {
                     console.error('Unable to get contributors from Github. Response status: ' + response.status);
