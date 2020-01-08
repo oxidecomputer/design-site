@@ -34,8 +34,6 @@
     --small-space: 1em;
     --large-space: 2em;
     --text-block-spacing: 0.5em;
-
-    --test: var(--primary-color);
 }
 
 @media (prefers-color-scheme: dark) {
