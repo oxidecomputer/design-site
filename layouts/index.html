@@ -80,7 +80,8 @@
                     title="Contributors to the GitHub repository design.oxide.computer by the oxidecomputer organization">{{ len $contribsJ }} contributors</a>
                 on
                 <a href="https://github.com/oxidecomputer/design.oxide.computer/" target="_blank" rel="noreferrer"
-                    title="GitHub repository design.oxide.computer by the oxidecomputer organization">GitHub</a>.<br />
+                    title="GitHub repository design.oxide.computer by the oxidecomputer organization">GitHub</a>.
+                    (See previous <a href="timetravel.html">versions </a> of this page via <a href="/timetravel">TimeTravel </a>)<br />
                 <div id="contributors">
                 {{ range sort $contribsJ ".total" "desc" }}
                 <a href="{{.author.html_url}}"><img src="{{.author.avatar_url}}" class="avatar" alt="{{.author.login}}" width="38" height="38"></a>
