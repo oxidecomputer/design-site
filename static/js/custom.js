@@ -1,8 +1,3 @@
-const lines = document.querySelector("#lines").children;
-[...lines].forEach(line => {
-  line.style.setProperty("--length", line.getTotalLength());
-});
-
 const themeToggle = document.querySelector(
   '.theme-toggle input[type="checkbox"]'
 );
