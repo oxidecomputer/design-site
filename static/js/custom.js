@@ -9,8 +9,22 @@ function switchTheme(e) {
   localStorage.setItem("theme", theme);
 }
 
-const currentTheme = localStorage.getItem("theme") || "dark";
-document.documentElement.setAttribute("data-theme", currentTheme);
-if (currentTheme === "dark") {
+function selectedTheme() {
+  return localStorage.getItem("theme");
+}
+
+const currentTheme = selectedTheme();
+if (currentTheme) {
+  document.documentElement.setAttribute("data-theme", currentTheme);
+}
+
+const mql = matchMedia("(prefers-color-scheme: dark)");
+if ((mql.matches && currentTheme != "light") || currentTheme === "dark") {
   themeToggle.checked = true;
 }
+
+mql.addListener((e) => {
+  if (!selectedTheme()) {
+    themeToggle.checked = e.matches;
+  }
+});

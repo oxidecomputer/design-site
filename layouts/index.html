@@ -55,10 +55,11 @@
             <h3>{{.Site.Title}}</h3>
             <h1>{{.Site.Params.Headline}}</h1>
             <p class="lead">{{.Site.Params.Description}}</p>
-            <p>Interested? Send a PR with any improvement to <a
-                    href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank" rel="noreferrer">this
-                    repo on
-                    GitHub</a> or <a href="https://oxide.computer/careers/product-engineers/" target="_blank">apply
+            <p>Interested and align with our <a href="https://oxide.computer/about/">principles of operation</a>?<br />
+                Send a PR with any improvement to <a
+                    href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank" rel="noreferrer noopener">this
+                    repo on GitHub</a>
+                    or <a href="https://oxide.computer/careers/product-engineering/" target="_blank">apply
                     through our careers page</a>.
         </main>
         <section id="theme-toggle-container">
@@ -68,15 +69,21 @@
             </label>
         </section>
         <footer>
+            {{ $contribsJ := getJSON "https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors" }}
             <p class="footer-piece footer-piece--separate">
                 Created by
                 <a href="https://github.com/oxidecomputer/design.oxide.computer/graphs/contributors" target="_blank"
-                    rel="noreferrer" id="contributors"
-                    title="Contributors to the GitHub repository design.oxide.computer by the oxidecomputer organization">0</a>
-                contributors
+                    rel="noreferrer"
+                    title="Contributors to the GitHub repository design.oxide.computer by the oxidecomputer organization">{{ len $contribsJ }} contributors</a>
                 on
                 <a href="https://github.com/oxidecomputer/design.oxide.computer/" target="_blank" rel="noreferrer"
                     title="GitHub repository design.oxide.computer by the oxidecomputer organization">GitHub</a>.
+                    (See previous <a href="timetravel.html">versions </a> of this page via <a href="/timetravel">TimeTravel </a>)<br />
+                <div id="contributors">
+                {{ range sort $contribsJ ".total" "desc" }}
+                <a href="{{.author.html_url}}"><img src="{{.author.avatar_url}}" class="avatar" alt="{{.author.login}}" width="38" height="38"></a>
+                {{ end }}
+                </div>
             </p>
         </footer>
     </div>
@@ -91,18 +98,6 @@
         gtag('config', '{{.Site.Params.google_analytics}}');
     </script>
     <script src="/js/custom.js"></script>
-    <script crossorigin="anonymous" async="async">
-        fetch('https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors')
-            .then(response => {
-                if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' + response.status);
-                    return;
-                }
-                return response.json();
-            })
-            .then(data => document.getElementById('contributors').innerText = data.length)
-            .catch(err => console.log('Fetch Error :-S', err));
-    </script>
 </body>
 
 </html>
