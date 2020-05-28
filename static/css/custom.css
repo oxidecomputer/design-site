@@ -2,14 +2,14 @@
 :root {
     /* color defaults */
     --light-primary-color: #48d597;
-    --light-font-color: #3A3B39;
+    --light-font-color: #F2F2F2;
     --light-svg-color: #d5d5d5;
-    --light-bg-color: #ffffff;
+    --light-bg-color: #222222;
 
-    --dark-primary-color: #48d597;
-    --dark-font-color: #efefef;
+    --dark-primary-color: #2BBB85;
+    --dark-font-color: #222;
     --dark-svg-color: #393939;
-    --dark-bg-color: #222222;
+    --dark-bg-color: #F2F2F2;
 
     --primary-color: var(--light-primary-color);
     --font-color: var(--light-font-color);
@@ -19,7 +19,7 @@
     /* typeface defaults */
     --title-font-size: 7vw;
     --title-min-font-size: 42px;
-    --title-max-font-size: 82px;
+    --title-max-font-size: 72px;
     --base-font-size: 1.2rem;
     --base-font-line-height: 26px;
     --mobile-base-font-size: 1.0rem;
@@ -90,32 +90,26 @@ body {
 }
 
 .parent {
-    width: 100vw;
     min-height: 460px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    padding: 2rem 1rem;
 }
 
-logo,
 main,
 #theme-toggle-container,
 footer {
     max-width: 600px;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 4rem;
     z-index: 1;
+    background-color: var(--bg-color);
 }
 
-logo {
-    padding-top: 1rem;
-}
-
-.logo-link {
-    display: block;
-    width: 5rem;
-    height: 5rem;
+main {
+    padding-top: 2rem;
 }
 
 #LogoType {
@@ -123,6 +117,7 @@ logo {
 }
 
 footer {
+    padding-bottom: 2rem;
     font-size: var(--small-font-size);
 }
 
@@ -149,26 +144,21 @@ main h1 {
     main h1 {
        font-size: var(--title-max-font-size);
     }
-  }
+}
 
-  @media only screen and (max-height: 600px) {
-    logo,
+@media only screen and (max-height: 600px) {
     main,
     #theme-toggle-container,
     footer {
         width: 49%;
-        padding-bottom: 10px;
-        padding-left: 20px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    logo,
     main,
     #theme-toggle-container,
     footer {
         width: 90%;
-        padding: 5px;
     }
     .logo-link {
         width: 4rem;
@@ -185,13 +175,14 @@ main h1 {
 
 main h3 {
     font-size: 0.75em;
-    margin: 2em 0 0.25em 0;
+    margin: 2em 0 0.5em 0;
     padding: 0 0 0 3em;
     position: relative;
     color: var(--primary-color);
     animation: var(--move-in-animation);
     animation-delay: calc(var(--move-in-base-delay) * 4);
 }
+
 main h3::before {
     content: '';
     position: absolute;
@@ -212,6 +203,10 @@ main p:nth-of-type(1) {
     animation-delay: calc(var(--move-in-base-delay) * 5);
 }
 
+main p:nth-of-type(2) {
+    animation-delay: calc(var(--move-in-base-delay) * 6);
+}
+
 main p:nth-child(2) {
     animation-delay: calc(var(--move-in-base-delay) * 6);
 }
@@ -220,13 +215,13 @@ footer p:nth-of-type(1) {
     animation-delay: calc(var(--move-in-base-delay) * 10);
 }
 
-/* main p:nth-of-type(3) {
+main p:nth-of-type(3) {
     animation-delay: calc(var(--move-in-base-delay) * 7);
 }
 
 main p:nth-child(4) {
     animation-delay: calc(var(--move-in-base-delay) * 8);
-} */
+}
 
 a {
     color: var(--primary-color);
