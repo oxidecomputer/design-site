@@ -306,8 +306,11 @@ input:checked + .slider:before {
 
 /* Circles */
 
+.circles {
+    animation: drawCircle 0.8s 2s both;
+}
+
 .st1 {
-    animation: drawCircle 180ms 2s both;
     transition: stroke 180ms ease-in;
 }
 
