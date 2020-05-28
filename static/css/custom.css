@@ -219,9 +219,9 @@ a:hover {
   animation: var(--move-in-animation);
   animation-delay: calc(var(--move-in-base-delay) * 6);
   display: inline-block;
-  height: 30px;
+  height: 24px;
   position: relative;
-  width: 50px;
+  width: 44px;
 }
 
 .theme-toggle input {
@@ -237,7 +237,7 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  transition: .2s;
+  transition: 80ms;
   border-radius: 30px;
 }
 
@@ -247,9 +247,9 @@ a:hover {
   position: absolute;
   left: 3px;
   bottom: 3px;
-  height: 22px;
-  width: 22px;
-  transition: .35s;
+  height: 16px;
+  width: 16px;
+  transition: 100ms;
   border-radius: 50%;
 }
 
