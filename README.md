@@ -17,8 +17,7 @@ Or you can use `make serve`.
 
 ### Deploying
 
-The site is deployed on [Netlify](https://www.netlify.com/) so we get
-[previews of changes in PRs](https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/).
+The site is deployed on [Vercel](https://vercel.com/) and we get previews of changes in PRs.
 
 ## Prior Art
 
