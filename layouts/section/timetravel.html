@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/HKGrotesk.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="/css/timetravel.css" />
+    <script src="/js/timetravel.js"></script>
+    <script language="JavaScript" type="text/javascript">
+      <!--
+        // Retrieve list of pull requests
+        {{ $prJ := getJSON "https://api.github.com/repos/oxidecomputer/design.oxide.computer/pulls?state=closed" }}
+
+        // And store list of pull request 'numbers' then reverse
+        let prNumbers = [
+        {{ range $prJ }}
+        '{{.number}}',
+        {{ end }}
+        ]
+        prNumbers.reverse();
+
+        // And store pull requests in map with pull request 'number' as key
+        let prMap = new Map();
+        {{ range $prJ }}
+        prMap.set('{{.number}}', {{.}})
+        {{ end }}
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="row-container">
+      <div class="first-row">
+        <div class="history__controller">
+          <button id="js-button-first" onClick="firstPR()"><span tabindex="-1">First</span></button>
+          <button id="js-button-previous" onClick="previousPR()"><span tabindex="-1">Previous</span></button>
+          <button id="js-button-next" onClick="nextPR()"><span tabindex="-1">Next</span></button>
+          <button id="js-button-last" onClick="lastPR()"><span tabindex="-1">Latest</span></button>
+          (<span id="prIndex"></span>/<span id="prCount"></span>) &nbsp;&nbsp;&nbsp;&nbsp;
+          <button id="js-button-first" onClick="location.href = '/index.html';"><span tabindex="-1">EXIT</span></button>
+        </div>
+        <br />
+        <img id="prAvatar" class="avatar" width="38" height="38" />
+        <span id="prTitle" style="color: white;"></span>
+        (<a id="prLink">see pull request</a>)
+        <br />
+        <br />
+      </div>
+      <iframe id="myframe" src="/index.html" class="second-row"></iframe>
+    </div>
+  </body>
+</html>
+
+<script language="JavaScript" type="text/javascript">
+  lastPR();
+</script>

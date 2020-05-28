@@ -1,10 +1,21 @@
 @charset "UTF-8";
 :root {
     /* color defaults */
-    --primary-color: #48d597;
-    --font-color: #3A3B39;
-    --svg-color: #d5d5d5;
-    --bg-color: #ffffff;
+    --light-primary-color: #48d597;
+    --light-font-color: #3A3B39;
+    --light-svg-color: #d5d5d5;
+    --light-bg-color: #ffffff;
+
+    --dark-primary-color: #48d597;
+    --dark-font-color: #efefef;
+    --dark-svg-color: #393939;
+    --dark-bg-color: #222222;
+
+    --primary-color: var(--light-primary-color);
+    --font-color: var(--light-font-color);
+    --svg-color: var(--light-svg-color);
+    --bg-color: var(--light-bg-color);
+
     /* typeface defaults */
     --title-font-size: 7vw;
     --title-min-font-size: 42px;
@@ -25,11 +36,27 @@
     --text-block-spacing: 0.5em;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: var(--dark-primary-color);
+    --font-color: var(--dark-font-color);
+    --svg-color: var(--dark-svg-color);
+    --bg-color: var(--dark-bg-color);
+  }
+}
+
 [data-theme="dark"] {
-    --primary-color: #48d597;
-    --font-color: #efefef;
-    --svg-color: #393939;
-    --bg-color: #222222;
+    --primary-color: var(--dark-primary-color);
+    --font-color: var(--dark-font-color);
+    --svg-color: var(--dark-svg-color);
+    --bg-color: var(--dark-bg-color);
+}
+
+[data-theme="light"] {
+    --primary-color: var(--light-primary-color);
+    --font-color: var(--light-font-color);
+    --svg-color: var(--light-svg-color);
+    --bg-color: var(--light-bg-color);
 }
 
 @keyframes move-in {
