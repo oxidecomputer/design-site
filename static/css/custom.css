@@ -201,27 +201,24 @@ footer p {
 }
 
 main p:nth-of-type(1) {
-    animation-delay: calc(var(--move-in-base-delay) * 5);
+    animation-delay: calc(var(--move-in-base-delay) * 4);
 }
 
 main p:nth-of-type(2) {
     animation-delay: calc(var(--move-in-base-delay) * 6);
 }
 
-main p:nth-child(2) {
-    animation-delay: calc(var(--move-in-base-delay) * 6);
+main p:nth-of-type(3) {
+    animation-delay: calc(var(--move-in-base-delay) * 8);
 }
 
 footer p:nth-of-type(1) {
-    animation-delay: calc(var(--move-in-base-delay) * 10);
+    animation-delay: calc(var(--move-in-base-delay) * 12);
 }
 
-main p:nth-of-type(3) {
-    animation-delay: calc(var(--move-in-base-delay) * 7);
-}
-
-main p:nth-child(4) {
-    animation-delay: calc(var(--move-in-base-delay) * 8);
+footer #contributors {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 14);
 }
 
 a {
@@ -245,7 +242,7 @@ a:hover {
   margin-top: 20px;
   margin-bottom: 10px;
   animation: var(--move-in-animation);
-  animation-delay: calc(var(--move-in-base-delay) * 6);
+  animation-delay: calc(var(--move-in-base-delay) * 10);
   display: inline-block;
   height: 24px;
   position: relative;
