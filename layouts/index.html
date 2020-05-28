@@ -44,7 +44,7 @@
 <body>
     <div class="circuit-svg">{{ partial "circuits.svg" . }}</div>
     <div class="parent">
-        <logo>
+        <main>
             <div class="logo-link" title="Oxide Computer Company Website">
                 <div class="logo" role="img" aria-label="Oxide Computer Company logo">
                     <a href="https://oxide.computer/" target="_blank">
@@ -52,8 +52,6 @@
                     </a>
                 </div>
             </div>
-        </logo>
-        <main>
             <h3>{{.Site.Title}}</h3>
             <h1>{{.Site.Params.Headline}}</h1>
             <p class="lead">{{.Site.Params.Description}}</p>
