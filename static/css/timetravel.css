@@ -94,6 +94,7 @@ hr {
   font-size: 1rem;
   top: 1rem;
   right: 1rem;
+  padding: 0.2rem;
 }
 
 .pr__title-wrapper {
@@ -143,5 +144,9 @@ hr {
 
   .history {
     flex: 1 1 10rem;
+  }
+
+  .history__exit {
+    padding: 0;
   }
 }
