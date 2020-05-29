@@ -34,7 +34,7 @@ hr {
 .container {
   position: relative;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   height: 100%;
 }
 
@@ -45,7 +45,7 @@ hr {
 
 .history {
   position: relative;
-  flex: 1 1 10rem;
+  flex: 0 1 auto;
   padding: 2rem;
   background: rgba(18, 18, 18, 1);
   color: #bbb;
@@ -134,4 +134,14 @@ hr {
 .pr__mergedAt {
   font-size: 0.9rem;
   opacity: 0.5;
+}
+
+@media screen and (min-width: 60rem) {
+  .container {
+    flex-direction: row;
+  }
+
+  .history {
+    flex: 1 1 10rem;
+  }
 }
