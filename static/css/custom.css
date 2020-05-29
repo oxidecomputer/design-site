@@ -2,14 +2,14 @@
 :root {
     /* color defaults */
     --light-primary-color: #48d597;
-    --light-font-color: #3A3B39;
+    --light-font-color: #F2F2F2;
     --light-svg-color: #d5d5d5;
-    --light-bg-color: #ffffff;
+    --light-bg-color: #222222;
 
-    --dark-primary-color: #48d597;
-    --dark-font-color: #efefef;
+    --dark-primary-color: #1D916F;
+    --dark-font-color: #222;
     --dark-svg-color: #393939;
-    --dark-bg-color: #222222;
+    --dark-bg-color: #F2F2F2;
 
     --primary-color: var(--light-primary-color);
     --font-color: var(--light-font-color);
@@ -19,7 +19,7 @@
     /* typeface defaults */
     --title-font-size: 7vw;
     --title-min-font-size: 42px;
-    --title-max-font-size: 82px;
+    --title-max-font-size: 72px;
     --base-font-size: 1.2rem;
     --base-font-line-height: 26px;
     --mobile-base-font-size: 1.0rem;
@@ -80,6 +80,7 @@ html, body {
 }
 
 body {
+    height: 100vh;
     background-color: var(--bg-color);
     color:var(--font-color);
     font-size: var(--base-font-size);
@@ -87,35 +88,30 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     transition: background-color var(--move-in-base-delay) ease-in;
+    position: relative;
 }
 
 .parent {
-    width: 100vw;
     min-height: 460px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    padding: 2rem 1rem;
 }
 
-logo,
 main,
 #theme-toggle-container,
 footer {
-    max-width: 600px;
+    max-width: 768px;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 4rem;
     z-index: 1;
+    background-color: var(--bg-color);
 }
 
-logo {
-    padding-top: 1rem;
-}
-
-.logo-link {
-    display: block;
-    width: 5rem;
-    height: 5rem;
+main {
+    padding-top: 2rem;
 }
 
 #LogoType {
@@ -123,6 +119,7 @@ logo {
 }
 
 footer {
+    padding-bottom: 2rem;
     font-size: var(--small-font-size);
 }
 
@@ -149,26 +146,21 @@ main h1 {
     main h1 {
        font-size: var(--title-max-font-size);
     }
-  }
+}
 
-  @media only screen and (max-height: 600px) {
-    logo,
+@media only screen and (max-height: 600px) {
     main,
     #theme-toggle-container,
     footer {
         width: 49%;
-        padding-bottom: 10px;
-        padding-left: 20px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    logo,
     main,
     #theme-toggle-container,
     footer {
         width: 90%;
-        padding: 5px;
     }
     .logo-link {
         width: 4rem;
@@ -185,13 +177,14 @@ main h1 {
 
 main h3 {
     font-size: 0.75em;
-    margin: 2em 0 0.25em 0;
+    margin: 2em 0 0.5em 0;
     padding: 0 0 0 3em;
     position: relative;
     color: var(--primary-color);
     animation: var(--move-in-animation);
     animation-delay: calc(var(--move-in-base-delay) * 4);
 }
+
 main h3::before {
     content: '';
     position: absolute;
@@ -209,24 +202,25 @@ footer p {
 }
 
 main p:nth-of-type(1) {
-    animation-delay: calc(var(--move-in-base-delay) * 5);
+    animation-delay: calc(var(--move-in-base-delay) * 4);
 }
 
-main p:nth-child(2) {
+main p:nth-of-type(2) {
     animation-delay: calc(var(--move-in-base-delay) * 6);
 }
 
-footer p:nth-of-type(1) {
-    animation-delay: calc(var(--move-in-base-delay) * 10);
-}
-
-/* main p:nth-of-type(3) {
-    animation-delay: calc(var(--move-in-base-delay) * 7);
-}
-
-main p:nth-child(4) {
+main p:nth-of-type(3) {
     animation-delay: calc(var(--move-in-base-delay) * 8);
-} */
+}
+
+footer p:nth-of-type(1) {
+    animation-delay: calc(var(--move-in-base-delay) * 12);
+}
+
+footer #contributors {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 14);
+}
 
 a {
     color: var(--primary-color);
@@ -244,92 +238,16 @@ a:hover {
     border-bottom: 1px solid var(--primary-color);
 }
 
-.svg > svg {
-    min-width: 100vw;
-    min-height: 100vh;
-    flex: none;
-}
-
-.svg {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:var(--font-color);
-}
-
-/* Lines */
-.st0{
-    fill:none;
-    stroke:var(--svg-color);
-    stroke-miterlimit:10;
-    stroke-miterlimit:10;
-    stroke-dasharray: var(--length);
-    stroke-dashoffset: var(--length);
-    animation: drawLine 1s 900ms ease-out both;
-
-    /*
-     * Safari Version 13.0.3 (15608.3.10.1.4) for some reason doesn't recognize
-     * both for animation-fill-mode. Instead it just draws the lines without any
-     * animation or draws partial lines.
-     */
-    -webkit-animation: drawLine 1s 900ms ease-out forwards;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawLine {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/*
- * Safari Version 13.0.3 also seems to require the from keyword in order to
- * properly render the transition, similar to the chrome and firefox renditions.
- */
-@-webkit-keyframes drawLine {
-    from {
-        stroke-dashoffset : 20%;
-    }
-}
-
-/* Circles */
-.st1{
-    fill:none;
-    stroke: var(--font-color);
-    stroke-linecap:round;
-
-    /*
-     * Firefox 69.0.1 was drawing the circle before the lines, shortend delay
-     * to compensate for inconsistency between browsers.
-     */
-    animation: drawCircle 1s 400ms both;
-    transition: stroke var(--move-in-base-delay) ease-in;
-}
-
-@keyframes drawCircle {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 0.6;
-    }
-}
-
 /* Toggle Styles */
 .theme-toggle {
   margin-top: 20px;
   margin-bottom: 10px;
   animation: var(--move-in-animation);
-  animation-delay: calc(var(--move-in-base-delay) * 6);
+  animation-delay: calc(var(--move-in-base-delay) * 10);
   display: inline-block;
-  height: 30px;
+  height: 24px;
   position: relative;
-  width: 50px;
+  width: 44px;
 }
 
 .theme-toggle input {
@@ -345,7 +263,7 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  transition: .2s;
+  transition: 80ms;
   border-radius: 30px;
 }
 
@@ -355,9 +273,9 @@ a:hover {
   position: absolute;
   left: 3px;
   bottom: 3px;
-  height: 22px;
-  width: 22px;
-  transition: .35s;
+  height: 16px;
+  width: 16px;
+  transition: 100ms;
   border-radius: 50%;
 }
 
@@ -369,23 +287,62 @@ input:checked + .slider:before {
   transform: translateX(19px);
 }
 
-/* Portrait */
-@media screen and (orientation:portrait) {
-    /* Portrait styles */
-    .svg > svg {
-        height: 180vh;
-    }
-}
-/* Landscape */
-@media screen and (orientation:landscape) {
-    /* Landscape styles */
-    .svg > svg {
-        width: 180vw;
-    }
+.circuit-svg {
+  height: 100%;
+  min-height: 640px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #424242;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(34, 34, 34, 1) 0%, rgba(0, 0, 0, 0) 50%);
+  opacity: 0.25;
 }
 
-@media only screen and (max-width: 1024px) and (orientation:landscape) {
-    .svg > svg {
-        width: 240vw;
-    }
+/* Circles */
+
+.circles {
+    animation: drawCircle 0.8s 2s both;
+}
+
+.st1 {
+    transition: stroke 180ms ease-in;
+}
+
+@keyframes drawCircle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Lines */
+
+.st0 {
+    animation: drawLine 6s 10s ease-out both;
+    -webkit-animation: drawLine 6s 10s ease-out forwards;
+    transition: stroke 900ms ease-in;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*
+ * Safari Version 13.0.3 also seems to require the from keyword in order to
+ * properly render the transition, similar to the chrome and firefox renditions.
+ */
+
+@-webkit-keyframes drawLine {
+  from {
+    stroke-dashoffset: 20%;
+  }
 }

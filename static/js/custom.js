@@ -1,8 +1,3 @@
-const lines = document.querySelector("#lines").children;
-[...lines].forEach(line => {
-  line.style.setProperty("--length", line.getTotalLength());
-});
-
 const themeToggle = document.querySelector(
   '.theme-toggle input[type="checkbox"]'
 );
@@ -32,4 +27,15 @@ mql.addListener((e) => {
   if (!selectedTheme()) {
     themeToggle.checked = e.matches;
   }
+});
+
+var paths = document.querySelectorAll('.st0');
+[].forEach.call(paths, function (path) {
+  var length = path.getTotalLength();
+  path.style.transition = path.style.WebkitTransition = 'none';
+  path.style.strokeDasharray = length + ' ' + length;
+  path.style.strokeDashoffset = length;
+  path.getBoundingClientRect();
+  path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 4s ease-in-out';
+  path.style.strokeDashoffset = '0';
 });

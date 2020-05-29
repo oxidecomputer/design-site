@@ -17,12 +17,8 @@ Or you can use `make serve`.
 
 ### Deploying
 
-The site is deployed on [Netlify](https://www.netlify.com/) so we get
-[previews of changes in PRs](https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/).
+The site is deployed on [Vercel](https://vercel.com/) and we get previews of changes in PRs.
 
 ## Prior Art
 
 This idea was based off something a team at [Microsoft](https://microsoft.github.io/join-dev-design/) did as well :)
-
-The circuit animation is forked from [codepen](https://codepen.io/christopherprins/pen/rZZWoj).
-
