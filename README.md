@@ -22,6 +22,3 @@ The site is deployed on [Vercel](https://vercel.com/) and we get previews of cha
 ## Prior Art
 
 This idea was based off something a team at [Microsoft](https://microsoft.github.io/join-dev-design/) did as well :)
-
-The circuit animation is forked from [codepen](https://codepen.io/christopherprins/pen/rZZWoj).
-
