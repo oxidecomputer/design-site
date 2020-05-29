@@ -80,6 +80,7 @@ html, body {
 }
 
 body {
+    height: 100vh;
     background-color: var(--bg-color);
     color:var(--font-color);
     font-size: var(--base-font-size);
