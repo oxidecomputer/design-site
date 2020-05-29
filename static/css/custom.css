@@ -161,6 +161,7 @@ main h1 {
     #theme-toggle-container,
     footer {
         width: 90%;
+        padding: 0 2rem;
     }
     .logo-link {
         width: 4rem;
