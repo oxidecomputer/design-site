@@ -3,7 +3,9 @@ const previewURLSuffix = ".oxidecomputer.now.sh";
 
 const $timeFrame = document.querySelector("#time-frame");
 const $prTitle = document.querySelector("#prTitle");
+const $prMerged = document.querySelector("#prMerged");
 const $prLink = document.querySelector("#prLink");
+const $prUser = document.querySelector("#prUser");
 const $prAvatar = document.querySelector("#prAvatar");
 const $prIndex = document.querySelector("#prIndex");
 const $prCount = document.querySelector("#prCount");
@@ -46,12 +48,14 @@ function changeContent() {
   // Or: prefix-ref-suffix
   $timeFrame.src = `${previewURLPrefix}${isFork ? `-fork-${owner}` : ''}-${ref}${previewURLSuffix}`;
   $prTitle.textContent = pr.title;
+  $prMerged.textContent = pr.merged_at;
   $prLink.href = pr.html_url;
+  $prUser.textContent = pr.user.login;
   $prAvatar.src = pr.user.avatar_url;
   $prIndex.textContent = prIndex + 1;
   $prCount.textContent = prNumbers.length;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   lastPR();
 });

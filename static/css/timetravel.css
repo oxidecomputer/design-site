@@ -1,25 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body,
 html {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #F2F2F2;
 }
 
-.row-container {
+a svg {
+ fill: #48d597;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
+}
+
+/* utils  */
+
+.-text--fade {
+  opacity: 0.4;
+}
+
+.container {
+  position: relative;
   display: flex;
-  width: 100%;
+  flex-flow: row nowrap;
   height: 100%;
-  flex-direction: column;
-  background-color: #222200;
+}
+
+.display-wrapper {
+  flex: 5;
+  border: none;
+}
+
+.history {
+  position: relative;
+  flex: 1 1 10rem;
+  padding: 2rem;
+  background: rgba(18, 18, 18, 1);
+  color: #bbb;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
 }
 
-.second-row {
-  flex-grow: 1;
-  border: none;
-  margin: 0;
-  padding: 0;
+.history__controller {
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .history__controller > button {
@@ -44,10 +83,55 @@ html {
 .history__controller > button:hover {
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 2px 3px #000;
-  transform: translateY(-1px);
 }
 
 .history__controller > button:active {
   box-shadow: none;
-  transform: translateY(0);
+}
+
+.history__exit {
+  position: absolute;
+  font-size: 1rem;
+  top: 1rem;
+  right: 1rem;
+}
+
+.pr__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.pr__title {
+  font-size: 1.5rem;
+}
+
+.pr__people-wrapper {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.pr__people {
+  position: relative;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.pr__avatar {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.pr__people > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pr__mergedAt {
+  font-size: 0.9rem;
+  opacity: 0.5;
 }
