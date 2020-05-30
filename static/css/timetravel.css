@@ -63,6 +63,7 @@ hr {
   padding: 1rem 0;
   display: flex;
   justify-content: space-between;
+  font-size: 0.8rem;
 }
 
 .history__controller > button {
