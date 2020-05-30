@@ -13,10 +13,6 @@ html {
   color: #F2F2F2;
 }
 
-a svg {
- fill: #48d597;
-}
-
 hr {
   border: 0;
   height: 0;
@@ -51,6 +47,14 @@ hr {
   color: #bbb;
   border-left: 1px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
+}
+
+.history a:hover {
+  border-bottom: none;
+}
+
+.history a svg {
+ fill: #48d597;
 }
 
 .history__controller {
