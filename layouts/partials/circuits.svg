@@ -1,7 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 706 562" style="object-fit:cover" preserveAspectRatio="xMidYMid slice">
-  <title>
-    Circuits SVG
-  </title>
   <g class="lines" fill="none" stroke="#505050" paint-order="fill stroke markers" stroke-linecap="round" stroke-miterlimit="10">
     <path class="st0" d="M100.8 472.8l12 12v12"/>
     <path class="st0" d="M100.8 52.8l12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12h36l12 12 12 12 12 12 12 12h36l12 12 12 12 12 12 12 12 12 12v72"/>
