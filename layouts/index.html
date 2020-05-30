@@ -39,6 +39,18 @@
     <link rel="stylesheet" href="/css/HKGrotesk.css" />
     <link rel="stylesheet" href="/css/custom.css" />
     <script src="/js/lib/modernizr-2.6.2.min.js"></script>
+    <script>
+        function selectedTheme() {
+            if (Modernizr.localstorage) {
+                return localStorage.getItem("theme");
+            }
+            return null;
+        }
+        const currentTheme = selectedTheme();
+        if (currentTheme) {
+            document.documentElement.setAttribute("data-theme", currentTheme);
+        }
+    </script>
 </head>
 
 <body>
