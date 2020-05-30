@@ -1,9 +1,10 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxide Computer Company: Hyperscaler infrastructure for the rest of us</title>
     <link rel="stylesheet" href="/css/HKGrotesk.css" />
     <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="/css/timetravel.css" />
-    <script src="/js/timetravel.js"></script>
     <script language="JavaScript" type="text/javascript">
       <!--
         // Retrieve list of pull requests
@@ -26,28 +27,42 @@
     </script>
   </head>
   <body>
-    <div class="row-container">
-      <div class="first-row">
+    <div class="container">
+      <div id="js-history" class="history">
+        <h2 class="history__count">
+          <span id="prIndex">1</span>
+          <span class="-text--fade">/</span>
+          <span id="prCount" class="-text-fade">70</span>
+        </h2>
         <div class="history__controller">
           <button id="js-button-first" onClick="firstPR()"><span tabindex="-1">First</span></button>
           <button id="js-button-previous" onClick="previousPR()"><span tabindex="-1">Previous</span></button>
           <button id="js-button-next" onClick="nextPR()"><span tabindex="-1">Next</span></button>
           <button id="js-button-last" onClick="lastPR()"><span tabindex="-1">Latest</span></button>
-          (<span id="prIndex"></span>/<span id="prCount"></span>) &nbsp;&nbsp;&nbsp;&nbsp;
-          <button id="js-button-first" onClick="location.href = '/index.html';"><span tabindex="-1">EXIT</span></button>
         </div>
-        <br />
-        <img id="prAvatar" class="avatar" width="38" height="38" />
-        <span id="prTitle" style="color: white;"></span>
-        (<a id="prLink">see pull request</a>)
-        <br />
-        <br />
+        <hr />
+        <div class="pr">
+          <div class="pr__title-wrapper">
+            <h1 id="prTitle" class="pr__title"></h1>
+            <a id="prLink">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+            </a>
+          </div>
+          <p id="prMerged" class="pr__mergedAt"></p>
+          <div class="pr__people-wrapper">
+            <div class="pr__people people--author">
+              <img id="prAvatar" class="pr__avatar" width="38" height="38" />
+              <p id="prUser"></p>
+            </div>
+          </div>
+        </div>
+        <a class="history__exit" href="{{.Site.BaseURL}}" title="Exit to main page">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="28" height="28"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+        </a>
       </div>
-      <iframe id="myframe" src="/index.html" class="second-row"></iframe>
+      <iframe id="time-frame" class="display-wrapper" src="/index.html"></iframe>
     </div>
+    <script src="/js/timetravel.js"></script>
   </body>
 </html>
 
-<script language="JavaScript" type="text/javascript">
-  lastPR();
-</script>
