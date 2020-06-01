@@ -18,7 +18,7 @@ jobs:
       - name: Update contibutors
         run: |
           mkdir -p static/data
-          curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/oxidecomputer/design-site/stats/contributors > static/data/contributors.json
+          curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/oxidecomputer/design-site/contributors > static/data/contributors.json
           curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/oxidecomputer/design-site/pulls?state=closed > static/data/pulls.json
         shell: bash
       - name: Commit changes to README
