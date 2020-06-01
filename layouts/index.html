@@ -28,9 +28,11 @@
 
     <!-- facebook open graph tags -->
     <meta property="og:title" content="{{ .Title }}: Design" />
-    <meta property="og:Section" content="website" />
+    <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ .Permalink }}" />
     <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:image" content="{{.Site.BaseURL}}/images/logo.jpg">
+    <meta property="og:image:alt" content="Oxide Computer Company Logo">
     <meta property="fb:admins" content="1018260045" />
     <meta property="og:description" content="{{ .Site.Params.description }}" />
 
