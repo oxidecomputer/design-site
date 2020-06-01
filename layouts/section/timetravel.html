@@ -8,7 +8,7 @@
     <script language="JavaScript" type="text/javascript">
       <!--
         // Retrieve list of pull requests
-        {{ $prJ := getJSON "https://api.github.com/repos/oxidecomputer/design.oxide.computer/pulls?state=closed" }}
+        {{ $prJ := getJSON "/data/pulls.json" }}
 
         // And store list of pull request 'numbers' then reverse
         let prNumbers = [

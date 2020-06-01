@@ -1,0 +1,32 @@
+on:
+  schedule:
+    - cron: "*/2 * * * *"
+  push:
+    branches:
+      - master # Push events on master branch
+name: Update contributors
+jobs:
+  updateContributors:
+    name: Update contributors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Fetch origin
+        run: |
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git fetch origin
+      - name: Update contibutors
+        run: |
+          mkdir -p static/data
+          curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/oxidecomputer/design-site/stats/contributors > static/data/contributors.json
+          curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/oxidecomputer/design-site/pulls?state=closed > static/data/pulls.json
+        shell: bash
+      - name: Commit changes to README
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add static/data
+          git commit -m "Update contributors" || echo "Nothing to commit"
+      - name: Push Changes
+        run: |
+          git push https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:master

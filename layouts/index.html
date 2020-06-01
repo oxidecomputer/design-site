@@ -69,7 +69,7 @@
             </label>
         </section>
         <footer>
-            {{ $contribsJ := getJSON "https://api.github.com/repos/oxidecomputer/design.oxide.computer/stats/contributors" }}
+            {{ $contribsJ := getJSON "/data/contributors.json" }}
             <p class="footer-piece footer-piece--separate">
                 Created by
                 <a href="https://github.com/oxidecomputer/design.oxide.computer/graphs/contributors" target="_blank"
