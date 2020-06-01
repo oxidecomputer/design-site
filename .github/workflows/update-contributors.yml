@@ -1,6 +1,4 @@
 on:
-  schedule:
-    - cron: "*/2 * * * *"
   push:
     branches:
       - master # Push events on master branch
