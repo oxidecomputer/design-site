@@ -1,3 +1,5 @@
+/* TODO: move this to SCSS and tidy up */
+
 @charset "UTF-8";
 :root {
     /* color defaults */
@@ -17,6 +19,7 @@
     --bg-color: var(--light-bg-color);
 
     /* typeface defaults */
+    --base-font: "HK Grotesk","HK Grotesk Legacy","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     --title-font-size: 7vw;
     --title-min-font-size: 42px;
     --title-max-font-size: 72px;
@@ -26,10 +29,12 @@
     --mobile-base-font-line-height: 22px;
     --small-font-size: 0.7em;
     --small-font-line-height: 14px;
+
     /* animations */
     --move-in-offset: 20px;
     --move-in-animation: 1s both move-in;
     --move-in-base-delay: 80ms;
+
     /* spacing */
     --small-space: 1em;
     --large-space: 2em;
@@ -71,7 +76,7 @@
 }
 
 html {
-    font-family: "HK Grotesk","HK Grotesk Legacy","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: var(--base-font);
 }
 
 html, body {
@@ -101,13 +106,22 @@ body {
 }
 
 main,
-#theme-toggle-container,
 footer {
     max-width: 768px;
     width: 100%;
     padding: 0 4rem;
     z-index: 1;
     background-color: var(--bg-color);
+}
+
+#theme-prefs-container {
+  display: flex;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#theme-prefs-container div:first-child {
+  margin-right: 2rem;
 }
 
 main {
@@ -120,7 +134,9 @@ main {
 
 footer {
     padding-bottom: 2rem;
+    padding-top: 2rem;
     font-size: var(--small-font-size);
+    margin-top: var(--base-font-size);
 }
 
 p,
@@ -134,8 +150,6 @@ main h1 {
     font-size: var(--title-font-size);
     letter-spacing: -0.05em;
     font-weight: 800;
-    animation: var(--move-in-animation);
-    animation-delay: calc(var(--move-in-base-delay) * 4);
     text-transform: uppercase;
     margin: 0;
     line-height: 0.9;
@@ -150,7 +164,7 @@ main h1 {
 
 @media only screen and (max-height: 600px) {
     main,
-    #theme-toggle-container,
+    #theme-prefs-container,
     footer {
         width: 49%;
     }
@@ -158,10 +172,17 @@ main h1 {
 
 @media only screen and (max-width: 600px) {
     main,
-    #theme-toggle-container,
     footer {
         width: 90%;
         padding: 0 2rem;
+    }
+    #theme-prefs-container {
+      width: 90%;
+      flex-direction: column;
+    }
+    #theme-prefs-container div:first-child {
+      margin: 0;
+      margin-bottom: 1rem;
     }
     .logo-link {
         width: 4rem;
@@ -196,31 +217,8 @@ main h3::before {
     background: currentColor;
 }
 
-logo,
-main p,
-footer p {
-    animation: var(--move-in-animation);
-}
-
-main p:nth-of-type(1) {
-    animation-delay: calc(var(--move-in-base-delay) * 4);
-}
-
-main p:nth-of-type(2) {
-    animation-delay: calc(var(--move-in-base-delay) * 6);
-}
-
-main p:nth-of-type(3) {
-    animation-delay: calc(var(--move-in-base-delay) * 8);
-}
-
-footer p:nth-of-type(1) {
-    animation-delay: calc(var(--move-in-base-delay) * 12);
-}
-
-footer #contributors {
-  animation: var(--move-in-animation);
-  animation-delay: calc(var(--move-in-base-delay) * 14);
+#contributors {
+  font-size: var(--small-font-size);
 }
 
 a {
@@ -241,51 +239,56 @@ a:hover {
 
 /* Toggle Styles */
 .theme-toggle {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  animation: var(--move-in-animation);
-  animation-delay: calc(var(--move-in-base-delay) * 10);
-  display: inline-block;
-  height: 24px;
   position: relative;
-  width: 44px;
+  font-size: 1rem;
 }
 
 .theme-toggle input {
   display: none;
 }
 
+.theme-toggle span {
+  line-height: calc(1rem + 6px);
+  vertical-align: middle;
+}
+
 .slider {
-  border: 1px solid var(--font-color);
   background: var(--font-color);
   cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transition: 80ms;
-  border-radius: 30px;
+  height: calc(1rem + 6px);
+  width: calc(2.5 * 1rem);
+  position: relative;
+  border-radius: calc((1rem + 6px) / 2);
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 6px;
 }
 
 .slider:before {
   background-color: var(--bg-color);
   content: "";
   position: absolute;
+  top: 3px;
   left: 3px;
-  bottom: 3px;
-  height: 16px;
-  width: 16px;
-  transition: 100ms;
+  height: 1rem;
+  width: 1rem;
   border-radius: 50%;
+  transition: transform var(--move-in-base-delay);
 }
 
-input:checked + .slider {
-  border-color: var(--font-color);
+input:checked ~ .slider:before {
+  transform: translateX(calc(2.5 * 1rem - (6px + 1rem)));
 }
 
-input:checked + .slider:before {
-  transform: translateX(19px);
+button {
+  background-color: var(--bg-color);
+  border: 3px solid var(--font-color);
+  color: var(--font-color);
+  cursor: pointer;
+  border-radius: 30px;
+  font-family: var(--base-font);
+  font-size: 1rem;
+  padding: 0.2rem 0.6rem;
 }
 
 .circuit-svg {
@@ -346,4 +349,47 @@ input:checked + .slider:before {
   from {
     stroke-dashoffset: 20%;
   }
+}
+
+/*
+ * Page Load Animations
+ */
+
+#logo {
+  animation: var(--move-in-animation);
+}
+
+#site-title {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 2);
+}
+
+#site-headline {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 4);
+}
+
+#intro {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 6);
+}
+
+#apply {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 8);
+}
+
+#contributors {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 10);
+}
+
+#contributor-photos {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 12);
+}
+
+#theme-prefs-container {
+  animation: var(--move-in-animation);
+  animation-delay: calc(var(--move-in-base-delay) * 14);
 }

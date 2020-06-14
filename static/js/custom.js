@@ -65,12 +65,19 @@ updateTheme(getCurrentTheme(), false);
 
 window.addEventListener('load', function() {
   // Find the theme toggle and listen for changes
-  const themeToggle = document.querySelector(
-    '.theme-toggle input[type="checkbox"]'
-  );
+  const themeToggle = document.querySelector('#theme-toggle-checkbox');
   if (themeToggle) {
     themeToggle.checked = getCurrentTheme() === 'dark';
     themeToggle.addEventListener('change', changeThemeToggle, false);
+  }
+
+  // Find the theme forget button and listen for presses
+  const themeClear = document.querySelector('#theme-clear-button');
+  if (themeClear) {
+    themeClear.addEventListener('click', function() {
+      localStorage.removeItem('theme');
+      updateTheme(getCurrentTheme(), false);
+    }, false);
   }
 
   // Listen for system theme changes (only has an effect if the user has not set a preference)
