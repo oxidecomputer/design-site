@@ -39,52 +39,64 @@
     <link rel="stylesheet" href="/css/HKGrotesk.css" />
     <link rel="stylesheet" href="/css/custom.css" />
     <script src="/js/lib/modernizr-2.6.2.min.js"></script>
+    <script src="/js/custom.js"></script>
 </head>
 
 <body>
     <div class="circuit-svg">{{ partial "circuits.svg" . }}</div>
     <div class="parent">
         <main>
-            <div class="logo-link" title="Oxide Computer Company Website">
-                <div class="logo" role="img" aria-label="Oxide Computer Company logo">
-                    <a href="https://oxide.computer/" target="_blank">
-                        {{ partial "logo.svg" . }}
-                    </a>
+            <section>
+                <div class="logo-link" title="Oxide Computer Company Website">
+                    <div id="logo" role="img" aria-label="Oxide Computer Company logo">
+                        <a href="https://oxide.computer/" target="_blank">
+                            {{ partial "logo.svg" . }}
+                        </a>
+                    </div>
+                </div>
+                <h3 id="site-title">{{.Site.Title}}</h3>
+                <h1 id="site-headline">{{.Site.Params.Headline}}</h1>
+            </section>
+            <section>
+                <p id="intro">{{.Site.Params.Description}}</p>
+                <p id="apply">
+                    <span>Interested and align with our <a href="https://oxide.computer/about/">principles of operation</a>?</span>
+                    <span>
+                        Send a PR with any improvement to <a href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank" rel="noreferrer noopener">this repo on GitHub</a> or <a href="https://oxide.computer/careers/product-engineering/" target="_blank">apply through our careers page</a>.
+                    </span>
+                </p>
+            </section>
+            <section>
+                {{ $contribsJ := getJSON "/data/contributors.json" }}
+                <p class="footer-piece footer-piece--separate" id="contributors">
+                    Created by
+                    <a href="https://github.com/oxidecomputer/design.oxide.computer/graphs/contributors" target="_blank"
+                        rel="noreferrer"
+                        title="Contributors to the GitHub repository design.oxide.computer by the oxidecomputer organization">{{ len $contribsJ }} contributors</a>
+                    on
+                    <a href="https://github.com/oxidecomputer/design.oxide.computer/" target="_blank" rel="noreferrer"
+                        title="GitHub repository design.oxide.computer by the oxidecomputer organization">GitHub</a>.
+                        You can see previous versions of this page via <a href="/timetravel">TimeTravel</a>.
+                    <div id="contributor-photos">
+                        {{ range sort $contribsJ ".total" "desc" }}
+                        <a href="{{.html_url}}"><img src="{{.avatar_url}}" class="avatar" title="{{.login}}" alt="{{.login}}" width="38" height="38"></a>
+                        {{ end }}
+                    </div>
+                </p>
+            </section>
+        </main>
+        <footer>
+            <div id="theme-prefs-container">
+                <div>
+                    <label class="theme-toggle" for="theme-toggle-checkbox" aria-label="Switch the theme">
+                        <input type="checkbox" id="theme-toggle-checkbox" />
+                        <span>Dark</span><div class="slider"></div><span>Light</span>
+                    </label>
+                </div>
+                <div>
+                    <button id="theme-clear-button">Clear saved theme</button>
                 </div>
             </div>
-            <h3>{{.Site.Title}}</h3>
-            <h1>{{.Site.Params.Headline}}</h1>
-            <p class="lead">{{.Site.Params.Description}}</p>
-            <p>
-                <span>Interested and align with our <a href="https://oxide.computer/about/">principles of operation</a>?</span>
-                <span>
-                    Send a PR with any improvement to <a href="https://github.com/oxidecomputer/design.oxide.computer" target="_blank" rel="noreferrer noopener">this repo on GitHub</a> or <a href="https://oxide.computer/careers/product-engineering/" target="_blank">apply through our careers page</a>.
-                </span>
-            </p>
-        </main>
-        <section id="theme-toggle-container">
-            <label class="theme-toggle" for="checkbox" aria-label="Switch the theme">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider"></div>
-            </label>
-        </section>
-        <footer>
-            {{ $contribsJ := getJSON "/data/contributors.json" }}
-            <p class="footer-piece footer-piece--separate">
-                Created by
-                <a href="https://github.com/oxidecomputer/design.oxide.computer/graphs/contributors" target="_blank"
-                    rel="noreferrer"
-                    title="Contributors to the GitHub repository design.oxide.computer by the oxidecomputer organization">{{ len $contribsJ }} contributors</a>
-                on
-                <a href="https://github.com/oxidecomputer/design.oxide.computer/" target="_blank" rel="noreferrer"
-                    title="GitHub repository design.oxide.computer by the oxidecomputer organization">GitHub</a>.
-                    You can see previous versions of this page via <a href="/timetravel">TimeTravel</a>.
-                <div id="contributors">
-                {{ range sort $contribsJ ".total" "desc" }}
-                <a href="{{.html_url}}"><img src="{{.avatar_url}}" class="avatar" title="{{.login}}" alt="{{.login}}" width="38" height="38"></a>
-                {{ end }}
-                </div>
-            </p>
         </footer>
     </div>
 
@@ -97,7 +109,6 @@
 
         gtag('config', '{{.Site.Params.google_analytics}}');
     </script>
-    <script src="/js/custom.js"></script>
 </body>
 
 </html>
