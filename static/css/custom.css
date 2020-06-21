@@ -326,9 +326,7 @@ input:checked + .slider:before {
 /* Lines
 
   Note, all these styles are overridden by JS as progressive enhancement.
-  This is needed to get the effect of each line animation starting and ending
-  in synchrony, because stroke-dashoffset percentages are relative to the
-  viewport instead of relative to the individual line length.
+  See static/js/custom.js
 */
 
 .st0 {

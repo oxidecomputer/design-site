@@ -29,6 +29,17 @@ mql.addListener((e) => {
   }
 });
 
+/*
+SVG line animations - override static CSS.
+
+To fully sync up all the line animations, each line really needs to have its
+own set of keyframes using its individual line length. Percentage values for
+stroke-dashoffset and stroke-dasharray are relative to the viewport instead of
+the line length, as would be more useful here.
+
+This allows all the lines to start and finish their animations at the same time.
+*/
+
 var paths = document.querySelectorAll('.st0');
 var cssString = '';
 
