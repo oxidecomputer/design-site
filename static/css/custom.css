@@ -306,7 +306,8 @@ input:checked + .slider:before {
 /* Circles */
 
 .circles {
-    animation: drawCircle 0.8s 2s both;
+    animation: drawCircle 2s 3s both;
+    -webkit-animation: drawCircle 2s 3s both;
 }
 
 .st1 {
@@ -322,28 +323,24 @@ input:checked + .slider:before {
   }
 }
 
+/* Lines
 
-/* Lines */
+  Note, all these styles are overridden by JS as progressive enhancement.
+  See static/js/custom.js
+*/
 
 .st0 {
-    animation: drawLine 6s 10s ease-out both;
-    -webkit-animation: drawLine 6s 10s ease-out forwards;
-    transition: stroke 900ms ease-in;
+  animation: drawLineNoScript 5s ease-in-out 1s both;
+  -webkit-animation: drawLineNoScript 5s ease-in-out 1s both;
+  stroke-dasharray: 100% 100%;
+  stroke-dashoffset: 100%;
 }
 
-@keyframes drawLine {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/*
- * Safari Version 13.0.3 also seems to require the from keyword in order to
- * properly render the transition, similar to the chrome and firefox renditions.
- */
-
-@-webkit-keyframes drawLine {
+@keyframes drawLineNoScript {
   from {
-    stroke-dashoffset: 20%;
+    stroke-dashoffset: 100%;
+  }
+  to {
+    stroke-dashoffset: 0%;
   }
 }

@@ -29,13 +29,37 @@ mql.addListener((e) => {
   }
 });
 
+/*
+SVG line animations - override static CSS.
+
+To fully sync up all the line animations, each line really needs to have its
+own set of keyframes using its individual line length. Percentage values for
+stroke-dashoffset and stroke-dasharray are relative to the viewport instead of
+the line length, as would be more useful here.
+
+This allows all the lines to start and finish their animations at the same time.
+*/
+
 var paths = document.querySelectorAll('.st0');
-[].forEach.call(paths, function (path) {
+var cssString = '';
+
+paths.forEach((path, i) => {
   var length = path.getTotalLength();
-  path.style.transition = path.style.WebkitTransition = 'none';
-  path.style.strokeDasharray = length + ' ' + length;
-  path.style.strokeDashoffset = length;
-  path.getBoundingClientRect();
-  path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 4s ease-in-out';
-  path.style.strokeDashoffset = '0';
+  cssString += `
+    @keyframes circuit_${i} {
+      from {
+        stroke-dashoffset: ${length}px;
+      }
+      to {
+        stroke-dashoffset: 0px;
+      }
+    }
+  `;
+  path.style.strokeDashoffset = `${length}px`;
+  path.style.strokeDasharray = `${length}px ${length}px`;
+  path.style.animation = `circuit_${i} 4s ease-in-out 1s both`;
 });
+
+var styleElement = document.createElement('style');
+styleElement.textContent = cssString;
+document.head.appendChild(styleElement);
