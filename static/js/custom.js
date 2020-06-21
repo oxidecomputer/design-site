@@ -28,3 +28,27 @@ mql.addListener((e) => {
     themeToggle.checked = e.matches;
   }
 });
+
+var paths = document.querySelectorAll('.st0');
+var cssString = '';
+
+paths.forEach((path, i) => {
+  var length = path.getTotalLength();
+  cssString += `
+    @keyframes circuit_${i} {
+      from {
+        stroke-dashoffset: ${length}px;
+      }
+      to {
+        stroke-dashoffset: 0px;
+      }
+    }
+  `;
+  path.style.strokeDashoffset = `${length}px`;
+  path.style.strokeDasharray = `${length}px ${length}px`;
+  path.style.animation = `circuit_${i} 4s ease-in-out both`;
+});
+
+var styleElement = document.createElement('style');
+styleElement.textContent = cssString;
+document.head.appendChild(styleElement);

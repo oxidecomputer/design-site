@@ -323,17 +323,22 @@ input:checked + .slider:before {
   }
 }
 
+/* Lines
 
-/* Lines */
+  Note, all these styles are overridden by JS as progressive enhancement.
+  This is needed to get the effect of each line animation starting and ending
+  in synchrony, because stroke-dashoffset percentages are relative to the
+  viewport instead of relative to the individual line length.
+*/
 
 .st0 {
-    animation: drawLine 4s 2s both;
-    -webkit-animation: drawLine 4s 2s both;
-    stroke-dasharray: 100% 100%;
-    stroke-dashoffset: 100%;
+  animation: drawLineNoScript 5s ease-in-out 1s both;
+  -webkit-animation: drawLineNoScript 5s ease-in-out 1s both;
+  stroke-dasharray: 100% 100%;
+  stroke-dashoffset: 100%;
 }
 
-@keyframes drawLine {
+@keyframes drawLineNoScript {
   from {
     stroke-dashoffset: 100%;
   }
