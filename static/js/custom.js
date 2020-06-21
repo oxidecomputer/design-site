@@ -57,7 +57,7 @@ paths.forEach((path, i) => {
   `;
   path.style.strokeDashoffset = `${length}px`;
   path.style.strokeDasharray = `${length}px ${length}px`;
-  path.style.animation = `circuit_${i} 4s ease-in-out both`;
+  path.style.animation = `circuit_${i} 4s ease-in-out 1s both`;
 });
 
 var styleElement = document.createElement('style');
