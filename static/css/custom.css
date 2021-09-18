@@ -2,29 +2,35 @@
 :root {
     /* color defaults */
     --light-primary-color: #48d597;
+    --light-secondary-color: #f5cf65;
     --light-font-color: #F2F2F2;
     --light-svg-color: #d5d5d5;
-    --light-bg-color: #222222;
+    --light-bg-color: #0B1418;
+    --light-inner-bg-color: #0B1418;
 
     --dark-primary-color: #1D916F;
+    --dark-secondary-color: #bb942a;
     --dark-font-color: #222;
     --dark-svg-color: #393939;
     --dark-bg-color: #F2F2F2;
+    --dark-inner-bg-color: #F2F2F2;
 
     --primary-color: var(--light-primary-color);
+    --secondary-color: var(--light-secondary-color);
     --font-color: var(--light-font-color);
     --svg-color: var(--light-svg-color);
     --bg-color: var(--light-bg-color);
+    --inner-bg-color: var(--light-inner-bg-color);
 
     /* typeface defaults */
     --title-font-size: 7vw;
     --title-min-font-size: 42px;
     --title-max-font-size: 72px;
-    --base-font-size: 1.2rem;
+    --base-font-size: 1.1rem;
     --base-font-line-height: 26px;
     --mobile-base-font-size: 1.0rem;
     --mobile-base-font-line-height: 22px;
-    --small-font-size: 0.7em;
+    --small-font-size: 0.5em;
     --small-font-line-height: 14px;
     /* animations */
     --move-in-offset: 20px;
@@ -39,24 +45,30 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: var(--dark-primary-color);
+    --secondary-color: var(--dark-secondary-color);
     --font-color: var(--dark-font-color);
     --svg-color: var(--dark-svg-color);
     --bg-color: var(--dark-bg-color);
+    --inner-bg-color: var(--dark-inner-bg-color);
   }
 }
 
 [data-theme="dark"] {
     --primary-color: var(--dark-primary-color);
+    --secondary-color: var(--dark-secondary-color);
     --font-color: var(--dark-font-color);
     --svg-color: var(--dark-svg-color);
     --bg-color: var(--dark-bg-color);
+    --inner-bg-color: var(--dark-inner-bg-color);
 }
 
 [data-theme="light"] {
     --primary-color: var(--light-primary-color);
+    --secondary-color: var(--light-secondary-color);
     --font-color: var(--light-font-color);
     --svg-color: var(--light-svg-color);
     --bg-color: var(--light-bg-color);
+    --inner-bg-color: var(--light-inner-bg-color);
 }
 
 @keyframes move-in {
@@ -71,7 +83,7 @@
 }
 
 html {
-    font-family: "HK Grotesk","HK Grotesk Legacy","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: Neue Haas Grotesk Display, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 html, body {
@@ -88,6 +100,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     transition: background-color var(--move-in-base-delay) ease-in;
+    letter-spacing: 0.03em;
     position: relative;
 }
 
@@ -105,13 +118,13 @@ main,
 footer {
     max-width: 768px;
     width: 100%;
-    padding: 0 4rem;
+    padding: 0 3rem;
     z-index: 1;
-    background-color: var(--bg-color);
+    background-color: var(--inner-bg-color);
 }
 
 main {
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 #LogoType {
@@ -119,8 +132,11 @@ main {
 }
 
 footer {
+    font-family: "GT America Mono OCC", monospace;
+    text-transform: uppercase;
     padding-bottom: 2rem;
     font-size: var(--small-font-size);
+    word-spacing: -0.2em;
 }
 
 p,
@@ -132,14 +148,15 @@ h3 {
 
 main h1 {
     font-size: var(--title-font-size);
-    letter-spacing: -0.05em;
-    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    font-weight: 300;
     animation: var(--move-in-animation);
     animation-delay: calc(var(--move-in-base-delay) * 4);
-    text-transform: uppercase;
+    padding-top: 0.5em;
     margin: 0;
-    line-height: 0.9;
-    padding-top: 0;
+    /* font-size: 4.5rem; */
+    color: var(--secondary-color);
 }
 
 @media screen and (min-width: 1280px) {
@@ -163,14 +180,21 @@ main h1 {
         width: 90%;
         padding: 0 2rem;
     }
-    .logo-link {
-        width: 4rem;
-        height: 4rem;
+
+    main {
+        padding: 2rem;
     }
+
+    .logo-link svg {
+      width: 20vw;
+      max-width: 150px;
+    }
+
     body {
         font-size: var(--mobile-base-font-size);
         line-height: var(--mobile-base-font-line-height);
     }
+
     main h1 {
        font-size: var(--title-min-font-size);
     }
@@ -184,6 +208,7 @@ main h3 {
     color: var(--primary-color);
     animation: var(--move-in-animation);
     animation-delay: calc(var(--move-in-base-delay) * 4);
+    display: none;
 }
 
 main h3::before {
@@ -235,8 +260,7 @@ a {
 }
 
 a:hover {
-    color: var(--font-color);
-    border-bottom: 1px solid var(--primary-color);
+    text-decoration: underline;
 }
 
 /* Toggle Styles */
@@ -288,6 +312,7 @@ input:checked + .slider:before {
   transform: translateX(19px);
 }
 
+#ascii,
 .circuit-svg {
   height: 100%;
   min-height: 640px;
@@ -297,10 +322,6 @@ input:checked + .slider:before {
   right: 0;
   bottom: 0;
   left: 0;
-  color: #424242;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(0deg, rgba(34, 34, 34, 1) 0%, rgba(0, 0, 0, 0) 50%);
-  opacity: 0.25;
 }
 
 /* Circles */

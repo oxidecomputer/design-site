@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'GT America Mono OCC';
+  src:
+    url("/fonts/GTAmericaMono-Regular-OCC.woff2") format("woff2"),
+    url("/fonts/GTAmericaMono-Regular-OCC.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: 'Neue Haas Grotesk Display';
+  src:
+    url("/fonts/NeueHaasGrotDisp-Light.woff2") format("woff2"),
+    url("/fonts/NeueHaasGrotDisp-Light.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: 'Neue Haas Grotesk Display';
+  src:
+    url("/fonts/NeueHaasGrotDisp-Roman.woff2") format("woff2"),
+    url("/fonts/NeueHaasGrotDisp-Roman.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
