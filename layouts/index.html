@@ -52,7 +52,16 @@
                     </a>
                 </div>
             </div>
-            <h3>{{.Site.Title}}</h3>
+            <div id="title">
+                <h3>{{.Site.Title}}</h3>
+            <section id="theme-toggle-container">
+                <h3>Dark mode</h3>
+                <label class="theme-toggle" for="checkbox" aria-label="Switch the theme">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider"></div>
+                </label>
+            </section>
+            </div>
             <h1>{{.Site.Params.Headline}}</h1>
             <p class="lead">{{.Site.Params.Description}}</p>
             <p>
@@ -62,12 +71,6 @@
                 </span>
             </p>
         </main>
-        <section id="theme-toggle-container">
-            <label class="theme-toggle" for="checkbox" aria-label="Switch the theme">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider"></div>
-            </label>
-        </section>
         <footer>
             {{ $contribsJ := getJSON "/data/contributors.json" }}
             <p class="footer-piece footer-piece--separate">
@@ -81,7 +84,7 @@
                     You can see previous versions of this page via <a href="/timetravel">TimeTravel</a>.
                 <div id="contributors">
                 {{ range sort $contribsJ ".total" "desc" }}
-                <a href="{{.html_url}}"><img src="{{.avatar_url}}" class="avatar" title="{{.login}}" alt="{{.login}}" width="38" height="38"></a>
+                <a href="{{.html_url}}"><img src="{{.avatar_url}}" class="avatar" title="{{.login}} has made {{.contributions}} contributions" alt="{{.login}}'s profile picture on GitHub" width="38" height="38"></a>
                 {{ end }}
                 </div>
             </p>

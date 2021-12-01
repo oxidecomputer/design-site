@@ -1,15 +1,15 @@
 @charset "UTF-8";
 :root {
     /* color defaults */
-    --light-primary-color: #48d597;
-    --light-font-color: #F2F2F2;
-    --light-svg-color: #d5d5d5;
-    --light-bg-color: #222222;
+    --light-primary-color: #1D916F;
+    --light-font-color: #222;
+    --light-svg-color: #393939;
+    --light-bg-color: #F2F2F2;
 
-    --dark-primary-color: #1D916F;
-    --dark-font-color: #222;
-    --dark-svg-color: #393939;
-    --dark-bg-color: #F2F2F2;
+    --dark-primary-color: #48d597;
+    --dark-font-color: #F2F2F2;
+    --dark-svg-color: #d5d5d5;
+    --dark-bg-color: #222222;
 
     --primary-color: var(--light-primary-color);
     --font-color: var(--light-font-color);
@@ -101,13 +101,33 @@ body {
 }
 
 main,
-#theme-toggle-container,
 footer {
     max-width: 768px;
     width: 100%;
     padding: 0 4rem;
     z-index: 1;
     background-color: var(--bg-color);
+}
+
+#title {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5em;
+  padding-bottom: 0.375em;
+}
+#title h3 {
+  display: flex;
+  align-items: center;
+}
+
+#theme-toggle-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#theme-toggle-container h3 {
+  color: var(--font-color);
+  padding: 0px var(--text-block-spacing) 0px 0px;
 }
 
 main {
@@ -150,7 +170,6 @@ main h1 {
 
 @media only screen and (max-height: 600px) {
     main,
-    #theme-toggle-container,
     footer {
         width: 49%;
     }
@@ -158,7 +177,6 @@ main h1 {
 
 @media only screen and (max-width: 600px) {
     main,
-    #theme-toggle-container,
     footer {
         width: 90%;
         padding: 0 2rem;
@@ -174,11 +192,13 @@ main h1 {
     main h1 {
        font-size: var(--title-min-font-size);
     }
+    #theme-toggle-container h3 {
+      display: none;
+    }
 }
 
 main h3 {
     font-size: 0.75em;
-    margin: 2em 0 0.5em 0;
     padding: 0 0 0 3em;
     position: relative;
     color: var(--primary-color);
@@ -186,7 +206,7 @@ main h3 {
     animation-delay: calc(var(--move-in-base-delay) * 4);
 }
 
-main h3::before {
+#title > h3::before {
     content: '';
     position: absolute;
     height: 2px;
@@ -241,10 +261,8 @@ a:hover {
 
 /* Toggle Styles */
 .theme-toggle {
-  margin-top: 20px;
-  margin-bottom: 10px;
   animation: var(--move-in-animation);
-  animation-delay: calc(var(--move-in-base-delay) * 10);
+  animation-delay: calc(var(--move-in-base-delay) * 4);
   display: inline-block;
   height: 24px;
   position: relative;
@@ -256,8 +274,8 @@ a:hover {
 }
 
 .slider {
-  border: 1px solid var(--font-color);
-  background: var(--font-color);
+  border: 1px solid var(--svg-color);
+  background: var(--svg-color);
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -281,7 +299,8 @@ a:hover {
 }
 
 input:checked + .slider {
-  border-color: var(--font-color);
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 input:checked + .slider:before {
