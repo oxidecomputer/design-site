@@ -1,15 +1,15 @@
 @charset "UTF-8";
 :root {
     /* color defaults */
-    --light-primary-color: #48d597;
-    --light-font-color: #F2F2F2;
-    --light-svg-color: #d5d5d5;
-    --light-bg-color: #222222;
+    --light-primary-color: #1D916F;
+    --light-font-color: #222;
+    --light-svg-color: #393939;
+    --light-bg-color: #F2F2F2;
 
-    --dark-primary-color: #1D916F;
-    --dark-font-color: #222;
-    --dark-svg-color: #393939;
-    --dark-bg-color: #F2F2F2;
+    --dark-primary-color: #48d597;
+    --dark-font-color: #F2F2F2;
+    --dark-svg-color: #d5d5d5;
+    --dark-bg-color: #222222;
 
     --primary-color: var(--light-primary-color);
     --font-color: var(--light-font-color);
