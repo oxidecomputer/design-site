@@ -101,13 +101,33 @@ body {
 }
 
 main,
-#theme-toggle-container,
 footer {
     max-width: 768px;
     width: 100%;
     padding: 0 4rem;
     z-index: 1;
     background-color: var(--bg-color);
+}
+
+#title {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5em;
+  padding-bottom: 0.375em;
+}
+#title h3 {
+  display: flex;
+  align-items: center;
+}
+
+#theme-toggle-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#theme-toggle-container h3 {
+  color: var(--font-color);
+  padding: 0px var(--text-block-spacing) 0px 0px;
 }
 
 main {
@@ -150,7 +170,6 @@ main h1 {
 
 @media only screen and (max-height: 600px) {
     main,
-    #theme-toggle-container,
     footer {
         width: 49%;
     }
@@ -158,7 +177,6 @@ main h1 {
 
 @media only screen and (max-width: 600px) {
     main,
-    #theme-toggle-container,
     footer {
         width: 90%;
         padding: 0 2rem;
@@ -174,11 +192,13 @@ main h1 {
     main h1 {
        font-size: var(--title-min-font-size);
     }
+    #theme-toggle-container h3 {
+      display: none;
+    }
 }
 
 main h3 {
     font-size: 0.75em;
-    margin: 2em 0 0.5em 0;
     padding: 0 0 0 3em;
     position: relative;
     color: var(--primary-color);
@@ -186,7 +206,7 @@ main h3 {
     animation-delay: calc(var(--move-in-base-delay) * 4);
 }
 
-main h3::before {
+#title > h3::before {
     content: '';
     position: absolute;
     height: 2px;
@@ -241,10 +261,8 @@ a:hover {
 
 /* Toggle Styles */
 .theme-toggle {
-  margin-top: 20px;
-  margin-bottom: 10px;
   animation: var(--move-in-animation);
-  animation-delay: calc(var(--move-in-base-delay) * 10);
+  animation-delay: calc(var(--move-in-base-delay) * 4);
   display: inline-block;
   height: 24px;
   position: relative;
