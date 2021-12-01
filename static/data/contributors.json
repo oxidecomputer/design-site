@@ -355,5 +355,26 @@
     "type": "User",
     "site_admin": false,
     "contributions": 1
+  },
+  {
+    "login": "arturbecker",
+    "id": 42967248,
+    "node_id": "MDQ6VXNlcjI4NDU3MDgx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/42967248?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/arturbecker",
+    "html_url": "https://github.com/arturbecker",
+    "followers_url": "https://api.github.com/users/arturbecker/followers",
+    "following_url": "https://api.github.com/users/arturbecker/following{/other_user}",
+    "gists_url": "https://api.github.com/users/arturbecker/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/arturbecker/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/arturbecker/subscriptions",
+    "organizations_url": "https://api.github.com/users/arturbecker/orgs",
+    "repos_url": "https://api.github.com/users/arturbecker/repos",
+    "events_url": "https://api.github.com/users/arturbecker/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/arturbecker/received_events",
+    "type": "User",
+    "site_admin": false,
+    "contributions": 1
   }
 ]

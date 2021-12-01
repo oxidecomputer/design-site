@@ -84,7 +84,7 @@
                     You can see previous versions of this page via <a href="/timetravel">TimeTravel</a>.
                 <div id="contributors">
                 {{ range sort $contribsJ ".total" "desc" }}
-                <a href="{{.html_url}}"><img src="{{.avatar_url}}" class="avatar" title="{{.login}}" alt="{{.login}}" width="38" height="38"></a>
+                <a href="{{.html_url}}"><img src="{{.avatar_url}}" class="avatar" title="{{.login}} has made {{.contributions}} contributions" alt="{{.login}}'s profile picture on GitHub" width="38" height="38"></a>
                 {{ end }}
                 </div>
             </p>
