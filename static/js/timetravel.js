@@ -42,7 +42,7 @@ function changeContent() {
   // to prevent breaking when repo does not exist anymore
   const isFork = pr.head.repo && pr.head.repo.fork || false;
   const owner = pr.head.repo && pr.head.repo.owner.login || '';
-  const ref = pr.head.ref;
+  const ref = pr.head.ref.replaceAll("/", "-");
 
   // Will be: prefix-fork-owner-ref-suffix
   // Or: prefix-ref-suffix
