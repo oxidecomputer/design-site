@@ -31,11 +31,20 @@ mql.addListener((e) => {
 
 var paths = document.querySelectorAll('.st0');
 [].forEach.call(paths, function (path) {
-  var length = path.getTotalLength();
-  path.style.transition = path.style.WebkitTransition = 'none';
-  path.style.strokeDasharray = length + ' ' + length;
-  path.style.strokeDashoffset = length;
-  path.getBoundingClientRect();
-  path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 4s ease-in-out';
-  path.style.strokeDashoffset = '0';
+  path.setAttribute('style', '--plen:'+path.getTotalLength());
+});
+
+csvg = document.querySelector('.circuit-svg');
+window.addEventListener('mousemove', e => {
+  x = e.pageX;
+  y = e.pageY;
+  xy = x + " "  + y;
+  gold = "rgba(212,175,55,0.75)";
+  bgWebKit = `-webkit-gradient(radial, ${xy}, 0, ${xy}, 200, from(${gold}), to(rgba(34, 34, 34, 0.0))), #212121`;
+  bgMoz = "-moz-radial-gradient(" + x + "px " + y + "px 45deg, circle, " + gold + " 0%, #212121 200px)";
+  csvg.style["background"] = bgWebKit;
+});
+
+csvg.addEventListener('mouseleave', e => {
+  csvg.style['background'] = '';
 });
